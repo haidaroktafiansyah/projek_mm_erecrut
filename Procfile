@@ -1,0 +1,1 @@
+web: node ./pkgs/boot/src/start.js dev

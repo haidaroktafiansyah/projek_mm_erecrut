@@ -46,5 +46,8 @@
     "prettier": "^2.2.1",
     "tslib": "1.14.1",
     "typescript": "^4.2.3"
+  },
+  "engines": {
+    "node": "16.9.1"
   }
 }
