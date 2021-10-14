@@ -8,7 +8,7 @@ import Webpackbar from 'webpackbar'
 import type { CustomGlobal } from '../start'
 import { copyDir } from '../utils/copyDir'
 import { overrideWebIndex } from '../utils/overrideWebIndex'
-// import { InjectManifest } from 'workbox-webpack-plugin'
+import { InjectManifest } from 'workbox-webpack-plugin'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 
 declare const global: CustomGlobal
