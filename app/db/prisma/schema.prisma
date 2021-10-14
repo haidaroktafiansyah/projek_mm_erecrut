@@ -5,34 +5,131 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = "postgresql://magang:magang123$%^@db.plansys.co:5432/magang4?schema=public"
+  url      = "postgresql://magang:magang123$%^@db.plansys.co:5432/magang4?schema=projek"
 }
 
-model albums {
-  AlbumId  Int     @id @default(autoincrement())
-  Title    String
-  ArtistId Int
-  artists  artists @relation(fields: [ArtistId], references: [ArtistId])
-  songs    songs[]
+model Alamat {
+  id         Int          @id @default(autoincrement())
+  createdAt  DateTime     @default(now())
+  alamat     String
+  kotaId     Int?
+  provinsiId Int?
+  Kota       Kota?        @relation(fields: [kotaId], references: [id])
+  Provinsi   Provinsi?    @relation(fields: [provinsiId], references: [id])
+  Departemen Departemen[]
+  Pelamar    Pelamar?     @relation(fields: [pelamarId], references: [id])
+  pelamarId  Int?
 }
 
-model artists {
-  ArtistId   Int        @id @default(autoincrement())
-  Name       String
-  CoutriesId Int?
-  countries  countries? @relation(fields: [CoutriesId], references: [id])
-  albums     albums[]
+model Departemen {
+  id              Int      @id @default(autoincrement())
+  createdAt       DateTime @default(now())
+  alamatId        Int?
+  nama_departemen String
+  Alamat          Alamat?  @relation(fields: [alamatId], references: [id])
 }
 
-model countries {
-  id      Int       @id @default(autoincrement())
-  name    String    @db.VarChar(45)
-  artists artists[]
+model Kota {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  nama_kota String
+  Alamat    Alamat[]
 }
 
-model songs {
-  id       Int    @id @default(autoincrement())
-  song     String @db.VarChar(45)
-  albumsId Int
-  albums   albums @relation(fields: [albumsId], references: [AlbumId])
+model Provinsi {
+  id            Int      @id @default(autoincrement())
+  createdAt     DateTime @default(now())
+  nama_provinsi String
+  Alamat        Alamat[]
+}
+
+model Status_Pekerja {
+  id             Int              @id @default(autoincrement())
+  createdAt      DateTime         @default(now())
+  status         String
+  Lowongan_kerja Lowongan_kerja[]
+}
+
+model Skill {
+  id         Int       @id @default(autoincrement())
+  createdAt  DateTime  @default(now())
+  nama_skill String
+  Pelamar    Pelamar[]
+}
+
+model Instansi {
+  id            Int       @id @default(autoincrement())
+  createdAt     DateTime  @default(now())
+  nama_instansi String
+  Jurusan       String
+  Pelamar       Pelamar[]
+
+}
+
+model Pelamar {
+  id            Int      @id @default(autoincrement())
+  createdAt     DateTime @default(now())
+  nama_lengkap  String
+  nomor_ktp     String
+  tanggal_lahir DateTime
+  nomor_hp      String
+  cv_lamaran    String
+
+
+  id_skill     Int?
+  Skill        Skill?      @relation(fields: [id_skill], references: [id])
+  Instansi     Instansi?   @relation(fields: [instansiId], references: [id])
+  instansiId   Int?
+  Pendidikan   Pendidikan? @relation(fields: [pendidikanId], references: [id])
+  pendidikanId Int?
+
+  Status_Lamaran Status_Lamaran[]
+  Alamat         Alamat[]
+}
+
+model Seleksi {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+
+  nama_seleksi   String
+  jadwal_seleksi DateTime
+
+  Lowongan_kerja Lowongan_kerja[]
+}
+
+model Pendidikan {
+  id                 Int       @id @default(autoincrement())
+  createdAt          DateTime  @default(now())
+  tingkat_pendidikan String
+  Pelamar            Pelamar[]
+}
+
+model Lowongan_kerja {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+
+  status_loker       Boolean
+  posisi             String
+  persyaratan        String
+  jobdesc            String
+  informasi_tambahan String
+  start_time         DateTime
+  end_time           DateTime
+
+  Seleksi          Seleksi?        @relation(fields: [seleksiId], references: [id])
+  seleksiId        Int?
+  Status_Pekerja   Status_Pekerja? @relation(fields: [status_PekerjaId], references: [id])
+  status_PekerjaId Int?
+
+  Status_Lamaran Status_Lamaran[]
+}
+
+model Status_Lamaran {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+
+  Lowongan_kerja   Lowongan_kerja? @relation(fields: [lowongan_kerjaId], references: [id])
+  lowongan_kerjaId Int?
+  Pelamar          Pelamar?        @relation(fields: [pelamarId], references: [id])
+  pelamarId        Int?
 }
