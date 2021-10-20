@@ -37,6 +37,7 @@
     "@playwright/test": "^1.14.1",
     "autoprefixer": "^10.2.5",
     "execa": "^5.0.0",
+    "fastest-validator": "^1.12.0",
     "fs-extra": "^9.1.0",
     "globby": "^11.0.3",
     "isomorphic-git": "^1.8.1",
@@ -46,8 +47,5 @@
     "prettier": "^2.2.1",
     "tslib": "1.14.1",
     "typescript": "^4.2.3"
-  },
-  "engines": {
-    "node": "16.9.1"
   }
 }

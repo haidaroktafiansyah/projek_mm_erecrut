@@ -85,6 +85,7 @@ model Pelamar {
 
   Status_Lamaran Status_Lamaran[]
   Alamat         Alamat[]
+  User           User[]
 }
 
 model Seleksi {
@@ -132,4 +133,39 @@ model Status_Lamaran {
   lowongan_kerjaId Int?
   Pelamar          Pelamar?        @relation(fields: [pelamarId], references: [id])
   pelamarId        Int?
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+
+  email    String
+  password String
+  Role     Role?  @relation(fields: [roleId], references: [id])
+  roleId   Int?
+
+
+  Pelamar   Pelamar? @relation(fields: [pelamarId], references: [id])
+  pelamarId Int?
+  Admin     Admin?   @relation(fields: [adminId], references: [id])
+  adminId   Int?
+}
+
+model Role {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+
+  name_role String
+
+  User User[]
+}
+
+model Admin {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+
+  nama_Admin String
+  no_Telfon  String
+
+  User User[]
 }
