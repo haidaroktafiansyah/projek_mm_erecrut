@@ -1,0 +1,211 @@
+<>
+  <effect
+    meta={{
+      // ======>Menu Active
+      isActive(route) {
+        if (route == window.location.pathname) {
+          return "bg-blue-700";
+        } else {
+          return null;
+        }
+      },
+      titleNav() {
+        var title = window.location.pathname;
+        title = title.replace("/", "");
+        return title;
+      },
+    }}
+    run={() => {}}
+  />
+  <div class="flex h-screen overflow-hidden bg-blueGray-50">
+    {/*Sidebar*/}
+    <div class="lg:w-64">
+      {/* Sidebar backdrop (mobile only) */}
+      <div
+        class="fixed inset-0 bg-gray-900 bg-opacity-30 z-40 lg:hidden lg:z-auto transition-opacity duration-200 opacity-0 pointer-events-none"
+        aria-hidden="true"
+      ></div>
+
+      {/*Sidebar Header */}
+      <div
+        id="sidebar"
+        class="absolute z-40 left-0 top-0 lg:static lg:left-auto lg:top-auto lg:translate-x-0 transform h-screen overflow-y-auto no-scrollbar w-64 flex-shrink-0 bg-blueGray-900 p-4 transition-transform duration-200 ease-in-out -translate-x-64"
+      >
+        {/* Logo */}
+        <div class="text-black font-bold text-xl flex items-center justify-between mb-10 pr-3 sm:px-2">
+          <button class="lg:hidden text-white hover:text-gray-300">
+            <span class="sr-only">Close sidebar</span>
+          </button>
+          <a href="/" class="block">
+            <img src="/fimgs/logo-light.x1.svg" class="h-12 bounce-top-icons" />
+          </a>
+        </div>
+        {/* Menu */}
+        <div>
+          <ul class="mt-4">
+            <li
+              class={`${meta.isActive(
+                "/"
+              )} px-3 py-3 rounded-lg mb-0.5 last:mb-0`}
+            >
+              <a
+                href="/"
+                class="block text-white hover:opacity-70 transition duration-150"
+              >
+                <div class="flex flex-grow items-center">
+                  <div class="flex-shrink-0 mr-4 ">
+                    <img src="/fimgs/ic-dashboard.x1.svg" class="h-5 w-5" />
+                  </div>
+                  <span class="text-md font-medium">Dashboard</span>
+                </div>
+              </a>
+            </li>
+          </ul>
+          {/*Pengaturan*/}
+          <h1 class="text-xs uppercase text-cyan-400 font-semibold pl-3 mt-4">
+            Master Data
+          </h1>
+          <ul class="mt-4">
+            <li
+              class={`${meta.isActive(
+                "/departemen"
+              )} px-3 py-3 rounded-lg mb-0.5 last:mb-0`}
+            >
+              <a
+                href="/departemen"
+                class="block text-white hover:opacity-70 transition duration-150"
+              >
+                <div class="flex flex-grow items-center">
+                  <div class="flex-shrink-0 mr-4 ">
+                    <img src="/fimgs/ic-departemen.x1.svg" class="h-5 w-5" />
+                  </div>
+                  <span class="text-md font-medium">Departemen</span>
+                </div>
+              </a>
+            </li>
+            <li
+              class={`${meta.isActive(
+                "/alamat"
+              )} px-3 py-3 rounded-lg mb-0.5 last:mb-0`}
+            >
+              <a
+                href="/alamat"
+                class="block text-white hover:opacity-70 transition duration-150"
+              >
+                <div class="flex flex-grow items-center">
+                  <div class="flex-shrink-0 mr-4 ">
+                    <img src="/fimgs/ic-alamat.x1.svg" class="h-5 w-5" />
+                  </div>
+                  <span class="text-md font-medium">Alamat</span>
+                </div>
+              </a>
+            </li>
+            <li
+              class={`${meta.isActive(
+                "/data-lowongan"
+              )} px-3 py-3 rounded-lg mb-0.5 last:mb-0`}
+            >
+              <a
+                href="/data-lowongan"
+                class="block text-white hover:opacity-70 transition duration-150"
+              >
+                <div class="flex flex-grow items-center">
+                  <div class="flex-shrink-0 mr-4 ">
+                    <img src="/fimgs/ic-data-lowongan.x1.svg" class="h-5 w-5" />
+                  </div>
+                  <span class="text-md font-medium">Data Lowongan</span>
+                </div>
+              </a>
+            </li>
+            <li
+              class={`${meta.isActive(
+                "/data-pelamar"
+              )} px-3 py-3 rounded-lg mb-0.5 last:mb-0`}
+            >
+              <a
+                href="/data-pelamar"
+                class="block text-white hover:opacity-70 transition duration-150"
+              >
+                <div class="flex flex-grow items-center">
+                  <div class="flex-shrink-0 mr-4 ">
+                    <img src="/fimgs/ic-data-pelamar.x1.svg" class="h-5 w-5" />
+                  </div>
+                  <span class="text-md font-medium">Data Pelamar</span>
+                </div>
+              </a>
+            </li>
+          </ul>
+          {/*=========Administrasi==========*/}
+          <h1 class="text-xs uppercase text-cyan-400 font-semibold pl-3 mt-4">
+            Administrasi
+          </h1>
+          <ul class="mt-4">
+            <li
+              class={`${meta.isActive(
+                "/operators"
+              )} px-3 py-3 rounded-lg mb-0.5 last:mb-0`}
+            >
+              <a
+                href="/operators"
+                class="block text-white hover:opacity-70 transition duration-150"
+              >
+                <div class="flex flex-grow items-center">
+                  <div class="flex-shrink-0 mr-4 ">
+                    <img src="/fimgs/ic-operators.x1.svg" class="h-5 w-5" />
+                  </div>
+                  <span class="text-md font-medium">Operators</span>
+                </div>
+              </a>
+            </li>
+            <li class="px-3 py-3 rounded-lg mb-0.5 last:mb-0">
+              <a
+                href="/login"
+                class="block text-white hover:opacity-70 transition duration-150"
+              >
+                <div class="flex flex-grow items-center">
+                  <div class="flex-shrink-0 mr-4 ">
+                    <img src="/fimgs/ic-logout.x1.svg" class="h-5 w-5" />
+                  </div>
+                  <span class="text-md font-medium">Logout</span>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    {/*Content Area*/}
+    <div class="relative flex flex-col flex-1 overflow-y-auto overflow-x-hidden">
+      <header class="sticky top-0 z-30 bg-white shadow-sm">
+        <div class="px-4 sm:px-6 lg:px-8">
+          <div class="flex items-center justify-between h-16 -mb-px">
+            {/* Header: Left side */}
+            <div class="flex">
+              {/* Hamburger button */}
+              <button
+                class="text-gray-500 hover:text-gray-600 lg:hidden mr-5 p-2 bg-white rounded-lg"
+                aria-controls="sidebar"
+              >
+                <span class="sr-only">Open sidebar</span>
+                Open
+              </button>
+              <h2 class="text-xl capitalize font-medium">{meta.titleNav()}</h2>
+            </div>
+            <div class="relative inline-flex">
+              <button class="inline-flex justify-center items-center group p-2 bg-white rounded-lg">
+                <div class="flex items-center truncate">
+                  <span class="truncate ml-2 text-sm font-medium group-hover:text-gray-800">
+                    User
+                  </span>
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+      </header>
+      <main class="px-4 sm:px-6 lg:px-8 py-8 w-full max-w-9xl mx-auto">
+        {children}
+      </main>
+    </div>
+  </div>
+</>

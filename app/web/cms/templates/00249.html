@@ -1,0 +1,104 @@
+<div>
+  <div class="card bg-white shadow">
+    <div class="card-body">
+      {/*<h2 class="card-title">Data Departemen</h2>*/}
+      <div class="flex mb-4">
+        <button class="btn bg-blue-700 border-none hover:bg-blue-500">
+          <svg
+            width={17}
+            height={16}
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            class="mr-3"
+          >
+            <path
+              fillRule="evenodd"
+              clipRule="evenodd"
+              d="M7.5 14a6 6 0 100-12 6 6 0 000 12zm.75-8.25a.75.75 0 10-1.5 0v1.5h-1.5a.75.75 0 100 1.5h1.5v1.5a.75.75 0 001.5 0v-1.5h1.5a.75.75 0 000-1.5h-1.5v-1.5z"
+              fill="#F3F4F6"
+            />
+          </svg>
+          Tambah
+        </button>
+      </div>
+      <div class="flex justify-between items-center mb-4">
+        <select class="select select-bordered max-w-xs">
+          <option disabled="disabled" selected="selected">
+            5
+          </option>
+          <option>25</option>
+          <option>50</option>
+          <option>100</option>
+        </select>
+        <div class="form-control">
+          <div class="relative">
+            <input
+              type="text"
+              placeholder="Cari"
+              class="w-full pr-16 input input-primary input-bordered"
+            />
+            <button class="absolute top-0 right-0 rounded-l-none btn btn-primary">
+              Cari
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="overflow-x-auto mb-4">
+        <table class="table w-full table-zebra">
+          <thead>
+            <tr>
+              <th>NO</th>
+              <th>Alamat</th>
+              <th>Kota</th>
+              <th>Provinsi</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>1</th>
+              <td>Jl. Semolowaru No.45, Sukolilo</td>
+              <td>Surabaya</td>
+              <td>Jawa Timur </td>
+              <td>
+                <button
+                  type="button"
+                  class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-1 rounded focus:outline-none focus:shadow-outline"
+                >
+                  <img src="/fimgs/ic-edit.x1.svg" />
+                </button>
+                <button
+                  type="button"
+                  class="text-sm bg-red-500 hover:bg-red-700 text-white py-1 px-1 rounded focus:outline-none focus:shadow-outline"
+                >
+                  <img src="/fimgs/ic-hapus.x1.svg" />
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="flex justify-start-end items-center">
+        <div class="flex-1">Showing 1 to 1 of entries</div>
+        <div class="btn-group">
+          <button class="btn btn-sm bg-white text-black hover:text-white">
+            Previous
+          </button>
+          <button class="btn btn-sm bg-white text-black hover:text-white">
+            1
+          </button>
+          <button class="btn btn-sm btn-active">2</button>
+          <button class="btn btn-sm btn bg-white text-black hover:text-white">
+            3
+          </button>
+          <button class="btn btn-sm btn bg-white text-black hover:text-white">
+            4
+          </button>
+          <button class="btn btn-sm bg-white text-black hover:text-white">
+            Next
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
