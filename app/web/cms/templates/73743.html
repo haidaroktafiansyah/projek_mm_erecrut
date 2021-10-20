@@ -1,9 +1,20 @@
-<div>
+<>
+  <effect
+    meta={{
+      value: {},
+    }}
+    run={async () => {
+      meta.value = await api("/api/departemens");
+    }}
+  />
   <div class="card bg-white shadow">
     <div class="card-body">
       {/*<h2 class="card-title">Data Departemen</h2>*/}
       <div class="flex mb-4">
-        <button class="btn bg-blue-700 border-none hover:bg-blue-500">
+        <a
+          href="/add-departemen"
+          class="btn bg-blue-700 border-none hover:bg-blue-500"
+        >
           <svg
             width={17}
             height={16}
@@ -19,7 +30,7 @@
             />
           </svg>
           Tambah
-        </button>
+        </a>
       </div>
       <div class="flex justify-between items-center mb-4">
         <select class="select select-bordered max-w-xs">
@@ -54,25 +65,27 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <th>1</th>
-              <td>Information technology</td>
-              <td>Jl. Semolowaru No.45, Sukolilo, Surabaya, Jawa Timur </td>
-              <td>
-                <button
-                  type="button"
-                  class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-1 rounded focus:outline-none focus:shadow-outline"
-                >
-                  <img src="/fimgs/ic-edit.x1.svg" />
-                </button>
-                <button
-                  type="button"
-                  class="text-sm bg-red-500 hover:bg-red-700 text-white py-1 px-1 rounded focus:outline-none focus:shadow-outline"
-                >
-                  <img src="/fimgs/ic-hapus.x1.svg" />
-                </button>
-              </td>
-            </tr>
+            {meta.value?.data?.map((departemenData, idx) => (
+              <tr>
+                <th>1</th>
+                <td>{departemenData.nama_departemen}</td>
+                <td>{departemenData.alamatId}</td>
+                <td>
+                  <button
+                    type="button"
+                    class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-1 rounded focus:outline-none focus:shadow-outline"
+                  >
+                    <img src="/fimgs/ic-edit.x1.svg" />
+                  </button>
+                  <button
+                    type="button"
+                    class="text-sm bg-red-500 hover:bg-red-700 text-white py-1 px-1 rounded focus:outline-none focus:shadow-outline"
+                  >
+                    <img src="/fimgs/ic-hapus.x1.svg" />
+                  </button>
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>
@@ -99,4 +112,4 @@
       </div>
     </div>
   </div>
-</div>
+</>

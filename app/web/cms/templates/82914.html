@@ -1,0 +1,128 @@
+<>
+  <effect
+    meta={{
+      value: {},
+      alamat: "",
+      id_almt: 0,
+      kota: "",
+      provinsi: "",
+      listKota: {},
+      listProvinsi: {},
+    }}
+    run={async () => {
+      meta.listKota = await api("/api/kota");
+      meta.listProvinsi = await api("/api/provinsi");
+      // get params id alamat
+      meta.id_almt = parseInt(params.id);
+      // Get Alamat by id
+      meta.value = await api(`/api/alamat/` + meta.id_almt).then((res) => {
+        console.log(res.data.alamat);
+        meta.alamat = res.data.alamat;
+        meta.kota = res.data.kotaId;
+        meta.provinsi = res.data.provinsiId;
+      });
+
+      meta.action = {
+        alamatChange: (e) => {
+          runInAction(() => {
+            meta.alamat = e.target.value;
+            console.log(meta.alamat);
+          });
+        },
+        kotaChange: (e) => {
+          runInAction(() => {
+            meta.kota = e.target.value;
+            console.log(meta.kota);
+          });
+        },
+        provinsiChange: (e) => {
+          runInAction(() => {
+            meta.provinsi = e.target.value;
+            console.log(meta.provinsi);
+          });
+        },
+        // Method Edit
+        editAlamat: (e) => {
+          api(`/api/alamat/` + meta.id_almt, {
+            id: meta.id_almt,
+            alamat: meta.alamat,
+            kotaId: meta.kota,
+            provinsiId: meta.provinsi,
+          }).then((e) => {
+            console.log(e);
+            alert("Edit Berhasil!");
+            window.location.replace("/alamat");
+          });
+        },
+      };
+    }}
+  />
+  <div class="card bg-white shadow">
+    <div class="card-body">
+      <form
+        onSubmit={() => {
+          meta.action.editAlamat();
+        }}
+      >
+        <div class="grid grid-cols-4 gap-2 mb-4">
+          <label class="label">
+            <span class="label-text">Alamat</span>
+          </label>
+          <div class="form-control col-span-3">
+            <input
+              type="text"
+              value={meta.alamat}
+              onChange={(e) => meta.action.alamatChange(e)}
+              placeholder="ex. Jl. Nginden VI No.26"
+              class="input input-bordered"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="grid grid-cols-4 gap-2 mb-4">
+          <label class="label">
+            <span class="label-text">Kota</span>
+          </label>
+          <select
+            class="select select-bordered w-full col-span-3"
+            value={meta.kota}
+            onChange={(e) => meta.action.kotaChange(e)}
+          >
+            <option>Pilih Kota</option>
+            {meta.listKota?.data?.map((listKota, idx) => (
+              <option value={listKota.id}>{listKota.nama_kota}</option>
+            ))}
+          </select>
+        </div>
+
+        <div class="grid grid-cols-4 gap-2 mb-4">
+          <label class="label">
+            <span class="label-text">Provinsi</span>
+          </label>
+          <select
+            class="select select-bordered w-full col-span-3"
+            value={meta.provinsi}
+            onChange={(e) => meta.action.provinsiChange(e)}
+          >
+            <option>Pilih Provinsi</option>
+            {meta.listProvinsi?.data?.map((listProvinsi, idx) => (
+              <option value={listProvinsi.id}>
+                {listProvinsi.nama_provinsi}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        <div>
+          <button class="btn btn-info mr-4" type="submit">
+            Simpan
+          </button>
+          <a href="/alamat" class="btn btn-error">
+            Batal
+          </a>
+        </div>
+      </form>
+    </div>
+  </div>
+</>

@@ -1,0 +1,76 @@
+<>
+  <effect
+    meta={{
+      alamat: "",
+      namaDepart: "",
+      listAlamat: {},
+    }}
+    run={async () => {
+      meta.listAlamat = await api("/api/alamat");
+
+      meta.action = {
+        namaDepartChange: (e) => {
+          runInAction(() => {
+            meta.namaDepart = e.target.value;
+            console.log(meta.namaDepart);
+          });
+        },
+        alamatChange: (e) => {
+          runInAction(() => {
+            meta.alamat = e.target.value;
+            console.log(meta.alamat);
+          });
+        },
+        // Method Tambah
+        addAlamat: (e) => {
+          api("/api/alamat", {
+            alamat: meta.alamat,
+            kotaId: meta.kota,
+            provinsiId: meta.provinsi,
+          }).then((e) => {
+            console.log(e);
+            alert("Tambah Alamat Berhasil!");
+            window.location.replace("/alamat");
+          });
+        },
+      };
+    }}
+  />
+  <div class="card bg-white shadow">
+    <div class="card-body">
+      <div class="grid grid-cols-4 gap-2 mb-4">
+        <label class="label">
+          <span class="label-text">Nama Departemen</span>
+        </label>
+        <div class="form-control col-span-3">
+          <input
+            type="text"
+            placeholder="ex. Information Technology"
+            class="input input-bordered"
+          />
+        </div>
+      </div>
+
+      <div class="grid grid-cols-4 gap-2 mb-4">
+        <label class="label">
+          <span class="label-text">Lokasi</span>
+        </label>
+        <select class="select select-bordered w-full max-w-xs col-span-3">
+          <option disabled="disabled" selected="selected">
+            Pilih Lokasi
+          </option>
+          {meta.listAlamat?.data?.map((listAlamat, idx) => (
+            <option value={listAlamat.id}>{listAlamat.alamat}</option>
+          ))}
+        </select>
+      </div>
+
+      <div>
+        <button class="btn btn-info mr-4">Simpan</button>
+        <a href="/departemen" class="btn btn-error">
+          Batal
+        </a>
+      </div>
+    </div>
+  </div>
+</>
