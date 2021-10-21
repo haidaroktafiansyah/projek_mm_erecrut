@@ -1,12 +1,23 @@
 <>
   <effect
     meta={{
-      alamat: null,
+      value: {},
+      alamat: "",
       namaDepart: "",
       listAlamat: {},
+      id_depart: 0,
     }}
     run={async () => {
       meta.listAlamat = await api("/api/alamat");
+      meta.id_depart = parseInt(params.id);
+      console.log(meta.id_depart);
+      meta.value = await api(`/api/departemen/` + meta.id_depart).then(
+        (res) => {
+          console.log(res.data);
+          meta.namaDepart = res.data.nama_departemen;
+          meta.alamat = res.data.alamatId;
+        }
+      );
 
       meta.action = {
         namaDepartChange: (e) => {
@@ -23,7 +34,7 @@
         },
         // Method Tambah
         addDepart: (e) => {
-          api("/api/departemens", {
+          api(`/api/departemen/` + meta.id_depart, {
             nama_departemen: meta.namaDepart,
             alamatId: meta.alamat,
           }).then((e) => {

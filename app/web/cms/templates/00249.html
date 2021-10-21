@@ -7,6 +7,11 @@
     }}
     run={async () => {
       meta.value = await api("/api/alamat");
+      meta.action = {
+        hapusAlamat: (alamatId) => {
+          api(`/api/alamat/` + alamatId);
+        },
+      };
     }}
   />
   <div class="card bg-white shadow">
@@ -72,15 +77,21 @@
               <tr>
                 <th>{idx + 1}</th>
                 <td>{alamatData.alamat}</td>
-                <td>{alamatData.kotaId}</td>
-                <td>{alamatData.provinsiId}</td>
+                <td>{alamatData.Kota.nama_kota}</td>
+                <td>{alamatData.Provinsi.nama_provinsi}</td>
                 <td>
                   <button class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-1 rounded focus:outline-none focus:shadow-outline">
                     <a href={`/edit-alamat/` + alamatData.id}>
                       <img src="/fimgs/ic-edit.x1.svg" />
                     </a>
                   </button>
-                  <button class="text-sm bg-red-500 hover:bg-red-700 text-white py-1 px-1 rounded focus:outline-none focus:shadow-outline">
+                  <button
+                    onClick={(e) => {
+                      e.preventDefault();
+                      meta.action.hapusAlamat(alamatData.id);
+                    }}
+                    class="text-sm bg-red-500 hover:bg-red-700 text-white py-1 px-1 rounded focus:outline-none focus:shadow-outline"
+                  >
                     <img src="/fimgs/ic-hapus.x1.svg" />
                   </button>
                 </td>

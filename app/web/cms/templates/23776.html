@@ -14,7 +14,7 @@
   />
   <div className="flex h-screen overflow-hidden bg-blue-100">
     <div className="w-screen h-screen flex justify-center items-center bg-gray-100">
-      <form className="p-10 flex justify-center items-center flex-col">
+      <div className="p-10 flex justify-center items-center flex-col">
         <img
           className="mb-5"
           src="/fimgs/logo-login.x1.svg"
@@ -82,7 +82,9 @@
         </div>
         <button
           className="bg-blue-700 hover:bg-blue-900 text-white font-bold p-3 rounded w-80"
-          type="submit"
+          onClick={() => {
+            window.location.replace("/");
+          }}
         >
           <span>Login</span>
         </button>
@@ -90,7 +92,7 @@
           Developed By <br />
           Intern Team 4 - Andromedia &copy; 2021 - {meta.getCurrentYear()}
         </span>
-      </form>
+      </div>
     </div>
   </div>
 </>

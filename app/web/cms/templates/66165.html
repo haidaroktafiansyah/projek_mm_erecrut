@@ -55,52 +55,18 @@
       >
         <div class="grid grid-cols-4 gap-2 mb-4">
           <label class="label">
-            <span class="label-text">Alamat</span>
+            <span class="label-text">Status Kerja</span>
           </label>
           <div class="form-control col-span-3">
             <input
               type="text"
               value={meta.alamat}
               onChange={(e) => meta.action.alamatChange(e)}
-              placeholder="ex. Jl. Nginden VI No.26"
+              placeholder="Status Kerja"
               class="input input-bordered"
               required
             />
           </div>
-        </div>
-
-        <div class="grid grid-cols-4 gap-2 mb-4">
-          <label class="label">
-            <span class="label-text">Kota</span>
-          </label>
-          <select
-            class="select select-bordered w-full col-span-3"
-            value={meta.kota}
-            onChange={(e) => meta.action.kotaChange(e)}
-          >
-            <option>Pilih Kota</option>
-            {meta.listKota?.data?.map((listKota, idx) => (
-              <option value={listKota.id}>{listKota.nama_kota}</option>
-            ))}
-          </select>
-        </div>
-
-        <div class="grid grid-cols-4 gap-2 mb-4">
-          <label class="label">
-            <span class="label-text">Provinsi</span>
-          </label>
-          <select
-            class="select select-bordered w-full col-span-3"
-            value={meta.provinsi}
-            onChange={(e) => meta.action.provinsiChange(e)}
-          >
-            <option>Pilih Provinsi</option>
-            {meta.listProvinsi?.data?.map((listProvinsi, idx) => (
-              <option value={listProvinsi.id}>
-                {listProvinsi.nama_provinsi}
-              </option>
-            ))}
-          </select>
         </div>
 
         <div>

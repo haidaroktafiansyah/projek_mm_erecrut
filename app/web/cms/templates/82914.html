@@ -60,7 +60,8 @@
   <div class="card bg-white shadow">
     <div class="card-body">
       <form
-        onSubmit={() => {
+        onSubmit={(e) => {
+          e.preventDefault();
           meta.action.editAlamat();
         }}
       >
