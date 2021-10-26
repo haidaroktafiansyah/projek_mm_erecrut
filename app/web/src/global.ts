@@ -1,12 +1,9 @@
-const Validator = require("fastest-validator");
 
-const v = new Validator();
+export const Joi = require('joi');
 
-const schema = {
-    nama_kota: { type: "number", min: 3, max: 255 },
-    $$strict: true // no additional properties allowed
-};
+// password hasher
+export const bcrypt = require('bcryptjs');
 
-const checker = v.compile(schema);
+export const ext = {
 
-export const checkvalidasikota = (d) => checker(d);
+}
