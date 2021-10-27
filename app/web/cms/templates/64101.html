@@ -8,10 +8,10 @@
       id_depart: 0,
     }}
     run={async () => {
-      meta.listAlamat = await api("/api/alamat");
+      meta.listAlamat = await api("/api/alamatdepartemen");
       meta.id_depart = parseInt(params.id);
       console.log(meta.id_depart);
-      meta.value = await api(`/api/departemen/` + meta.id_depart).then(
+      meta.value = await api(`/api/departemen/d/` + meta.id_depart).then(
         (res) => {
           console.log(res.data);
           meta.namaDepart = res.data.nama_departemen;
@@ -34,7 +34,7 @@
         },
         // Method Tambah
         addDepart: (e) => {
-          api(`/api/departemen/` + meta.id_depart, {
+          api(`/api/departemen/d/` + meta.id_depart, {
             nama_departemen: meta.namaDepart,
             alamatId: meta.alamat,
           }).then((e) => {

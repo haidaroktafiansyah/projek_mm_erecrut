@@ -6,7 +6,7 @@
       listAlamat: {},
     }}
     run={async () => {
-      meta.listAlamat = await api("/api/alamat");
+      meta.listAlamat = await api("/api/alamatdepartemen");
 
       meta.action = {
         namaDepartChange: (e) => {
@@ -23,7 +23,7 @@
         },
         // Method Tambah
         addDepart: (e) => {
-          api("/api/departemens", {
+          api("/api/departemen", {
             nama_departemen: meta.namaDepart,
             alamatId: meta.alamat,
           }).then((e) => {

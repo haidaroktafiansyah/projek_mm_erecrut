@@ -4,7 +4,7 @@
       value: {},
     }}
     run={async () => {
-      meta.value = await api("/api/departemens");
+      meta.value = await api("/api/departemen");
     }}
   />
   <div class="card bg-white shadow">
@@ -67,7 +67,7 @@
           <tbody>
             {meta.value?.data?.map((departemenData, idx) => (
               <tr>
-                <th>1</th>
+                <th>{idx + 1}</th>
                 <td>{departemenData.nama_departemen}</td>
                 <td>{departemenData.Alamat.alamat}</td>
                 <td>
