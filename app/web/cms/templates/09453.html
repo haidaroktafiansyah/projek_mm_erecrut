@@ -1,0 +1,87 @@
+<div>
+  <div class="card bg-white shadow">
+    <div class="card-body">
+      {/*<h2 class="card-title">Data Departemen</h2>*/}
+      <div class="flex justify-between items-center mb-4">
+        <select class="select select-bordered max-w-xs">
+          <option disabled="disabled" selected="selected">
+            5
+          </option>
+          <option>25</option>
+          <option>50</option>
+          <option>100</option>
+        </select>
+        <div class="form-control">
+          <div class="relative">
+            <input
+              type="text"
+              placeholder="Cari"
+              class="w-full pr-16 input input-primary input-bordered"
+            />
+            <button class="absolute top-0 right-0 rounded-l-none btn btn-primary">
+              Cari
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="overflow-x-auto mb-4">
+        <table class="table w-full table-zebra">
+          <thead>
+            <tr>
+              <th>NO</th>
+              <th>POSISI</th>
+              <th>JUMLAH PELAMAR</th>
+              <th>STATUS</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>1</th>
+              <td>Production Leader</td>
+              <td>10 Pelamar</td>
+              <td>
+                <div class="badge badge-accent">Proses Seleksi</div>
+              </td>
+              <td>
+                <button
+                  type="button"
+                  class="mr-3 text-sm bg-green-500 hover:bg-green-700 text-white py-1 px-1 rounded focus:outline-none focus:shadow-outline"
+                >
+                  <img src="/fimgs/ic-view.x1.svg" />
+                </button>
+                <button
+                  type="button"
+                  class="text-sm bg-red-500 hover:bg-red-700 text-white py-1 px-1 rounded focus:outline-none focus:shadow-outline"
+                >
+                  <img src="/fimgs/ic-hapus.x1.svg" />
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="flex justify-start-end items-center">
+        <div class="flex-1">Showing 1 to 1 of entries</div>
+        <div class="btn-group">
+          <button class="btn btn-sm bg-white text-black hover:text-white">
+            Previous
+          </button>
+          <button class="btn btn-sm bg-white text-black hover:text-white">
+            1
+          </button>
+          <button class="btn btn-sm btn-active">2</button>
+          <button class="btn btn-sm btn bg-white text-black hover:text-white">
+            3
+          </button>
+          <button class="btn btn-sm btn bg-white text-black hover:text-white">
+            4
+          </button>
+          <button class="btn btn-sm bg-white text-black hover:text-white">
+            Next
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
