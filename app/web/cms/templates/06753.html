@@ -1,4 +1,12 @@
-<div>
+<>
+  <effect
+    meta={{
+      value: {},
+    }}
+    run={async () => {
+      meta.value = await api("/api/lowongankerja");
+    }}
+  />
   <div class="card bg-white shadow">
     <div class="card-body">
       {/*<h2 class="card-title">Data Departemen</h2>*/}
@@ -52,36 +60,43 @@
             <tr>
               <th>NO</th>
               <th>POSISI</th>
-              <th>STATUS</th>
+              <th>STATUS PEKERJAAN</th>
               <th>TANGGAL MULAI</th>
               <th>TANGGAL SELESAI</th>
-              <th>JENIS PEKERJAAN</th>
+              <th>SLOT</th>
+              <th>STATUS</th>
               <th></th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <th>1</th>
-              <td>Production Leader</td>
-              <td>Pegawai Tetap</td>
-              <td>21 September 2021</td>
-              <td>21 Oktober 2021</td>
-              <td>Tersedia</td>
-              <td>
-                <button
-                  type="button"
-                  class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-1 rounded focus:outline-none focus:shadow-outline"
-                >
-                  <img src="/fimgs/ic-edit.x1.svg" />
-                </button>
-                <button
-                  type="button"
-                  class="text-sm bg-red-500 hover:bg-red-700 text-white py-1 px-1 rounded focus:outline-none focus:shadow-outline"
-                >
-                  <img src="/fimgs/ic-hapus.x1.svg" />
-                </button>
-              </td>
-            </tr>
+            {meta.value?.data?.map((lowonganKerja, idx) => (
+              <tr>
+                <th>{idx + 1}</th>
+                <td>{lowonganKerja.Kebutuhan_loker.posisi}</td>
+                <td>{lowonganKerja.Status_Pekerja.status_pekerja}</td>
+                <td>{lowonganKerja.start_open}</td>
+                <td>{lowonganKerja.end_open}</td>
+                <td>{lowonganKerja.jumlah_diterima}</td>
+                <td>{lowonganKerja.status_loker}</td>
+                <td>
+                  <button class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-1 rounded focus:outline-none focus:shadow-outline">
+                    <a href={`/edit-alamat/` + lowonganKerja.id}>
+                      <img src="/fimgs/ic-edit.x1.svg" />
+                    </a>
+                  </button>
+                  <button
+                    onClick={async () =>
+                      api(`/api/alamat/`, {
+                        id: lowonganKerja.id,
+                      })
+                    }
+                    class="text-sm bg-red-500 hover:bg-red-700 text-white py-1 px-1 rounded focus:outline-none focus:shadow-outline"
+                  >
+                    <img src="/fimgs/ic-hapus.x1.svg" />
+                  </button>
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>
@@ -108,4 +123,4 @@
       </div>
     </div>
   </div>
-</div>
+</>
