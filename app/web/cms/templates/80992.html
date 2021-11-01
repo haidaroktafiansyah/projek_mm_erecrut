@@ -122,6 +122,23 @@
             </li>
             <li
               class={`${meta.isActive(
+                "/posisi-lowongan"
+              )} px-3 py-3 rounded-lg mb-0.5 last:mb-0`}
+            >
+              <a
+                href="/posisi-lowongan"
+                class="block text-white hover:opacity-70 transition duration-150"
+              >
+                <div class="flex flex-grow items-center">
+                  <div class="flex-shrink-0 mr-4 ">
+                    <img src="/fimgs/ic-posisi.x1.svg" class="h-5 w-5" />
+                  </div>
+                  <span class="text-md font-medium">Posisi Lowongan</span>
+                </div>
+              </a>
+            </li>
+            <li
+              class={`${meta.isActive(
                 "/data-lowongan"
               )} px-3 py-3 rounded-lg mb-0.5 last:mb-0`}
             >
@@ -151,6 +168,72 @@
                     <img src="/fimgs/ic-data-pelamar.x1.svg" class="h-5 w-5" />
                   </div>
                   <span class="text-md font-medium">Data Pelamar</span>
+                </div>
+              </a>
+            </li>
+          </ul>
+          {/*=========Seleksi==========*/}
+          <h1 class="text-xs uppercase text-cyan-400 font-semibold pl-3 mt-4">
+            Administrasi
+          </h1>
+          <ul class="mt-4">
+            <li
+              class={`${meta.isActive(
+                "/seleksi-pelamar"
+              )} px-3 py-3 rounded-lg mb-0.5 last:mb-0`}
+            >
+              <a
+                href="/seleksi-pelamar"
+                class="block text-white hover:opacity-70 transition duration-150"
+              >
+                <div class="flex flex-grow items-center">
+                  <div class="flex-shrink-0 mr-4 ">
+                    <img
+                      src="/fimgs/ic-seleksi-karyawan.x1.svg"
+                      class="h-5 w-5"
+                    />
+                  </div>
+                  <span class="text-md font-medium">Seleksi Pelamar</span>
+                </div>
+              </a>
+            </li>
+            <li
+              class={`${meta.isActive(
+                "/seleksi-berkas"
+              )} px-3 py-3 rounded-lg mb-0.5 last:mb-0`}
+            >
+              <a
+                href="/seleksi-berkas"
+                class="block text-white hover:opacity-70 transition duration-150"
+              >
+                <div class="flex flex-grow items-center">
+                  <div class="flex-shrink-0 mr-4 ">
+                    <img
+                      src="/fimgs/ic-seleksi-berkas.x1.svg"
+                      class="h-5 w-5"
+                    />
+                  </div>
+                  <span class="text-md font-medium">Seleksi Berkas</span>
+                </div>
+              </a>
+            </li>
+            <li
+              class={`${meta.isActive(
+                "/seleksi-interview"
+              )} px-3 py-3 rounded-lg mb-0.5 last:mb-0`}
+            >
+              <a
+                href="/seleksi-interview"
+                class="block text-white hover:opacity-70 transition duration-150"
+              >
+                <div class="flex flex-grow items-center">
+                  <div class="flex-shrink-0 mr-4 ">
+                    <img
+                      src="/fimgs/ic-seleksi-interview.x1.svg"
+                      class="h-5 w-5"
+                    />
+                  </div>
+                  <span class="text-md font-medium">Seleksi Interview</span>
                 </div>
               </a>
             </li>

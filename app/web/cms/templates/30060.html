@@ -4,7 +4,7 @@
       value: {},
     }}
     run={async () => {
-      meta.value = await api("/api/statuspekerja");
+      meta.value = await api("/api/kebutuhanloker");
     }}
   />
   <div class="card bg-white shadow">
@@ -12,7 +12,7 @@
       {/*<h2 class="card-title">Data Departemen</h2>*/}
       <div class="flex mb-4">
         <a
-          href="/add-status-kerja"
+          href="/add-posisi-lowongan"
           class="btn bg-blue-700 border-none hover:bg-blue-500"
         >
           <svg
@@ -59,25 +59,25 @@
           <thead>
             <tr>
               <th>NO</th>
-              <th>Status</th>
+              <th>Posisi</th>
               <th></th>
             </tr>
           </thead>
           <tbody>
-            {meta.value?.data?.map((stsPekerja, idx) => (
+            {meta.value?.data?.map((kebutuhanLoker, idx) => (
               <tr>
                 <th>{idx + 1}</th>
-                <td>{stsPekerja.status_pekerja}</td>
+                <td>{kebutuhanLoker.posisi}</td>
                 <td>
                   <button class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-1 rounded focus:outline-none focus:shadow-outline">
-                    <a href={`/edit-alamat/` + stsPekerja.id}>
+                    <a href={`/edit-alamat/` + kebutuhanLoker.id}>
                       <img src="/fimgs/ic-edit.x1.svg" />
                     </a>
                   </button>
                   <button
                     onClick={async () =>
                       api(`/api/alamat/`, {
-                        id: stsPekerja.id,
+                        id: kebutuhanLoker.id,
                       })
                     }
                     class="text-sm bg-red-500 hover:bg-red-700 text-white py-1 px-1 rounded focus:outline-none focus:shadow-outline"

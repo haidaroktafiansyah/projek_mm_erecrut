@@ -15,12 +15,14 @@
       // get params id alamat
       meta.id_almt = parseInt(params.id);
       // Get Alamat by id
-      meta.value = await api(`/api/alamat/` + meta.id_almt).then((res) => {
-        console.log(res.data.alamat);
-        meta.alamat = res.data.alamat;
-        meta.kota = res.data.kotaId;
-        meta.provinsi = res.data.provinsiId;
-      });
+      meta.value = await api(`/api/alamatdepartemen/d/` + meta.id_almt).then(
+        (res) => {
+          console.log(res.data.alamat);
+          meta.alamat = res.data.alamat;
+          meta.kota = res.data.kotaId;
+          meta.provinsi = res.data.provinsiId;
+        }
+      );
 
       meta.action = {
         alamatChange: (e) => {
@@ -43,7 +45,7 @@
         },
         // Method Edit
         editAlamat: (e) => {
-          api(`/api/alamat/` + meta.id_almt, {
+          api(`/api/alamatdepartemen/d/` + meta.id_almt, {
             id: meta.id_almt,
             alamat: meta.alamat,
             kotaId: meta.kota,

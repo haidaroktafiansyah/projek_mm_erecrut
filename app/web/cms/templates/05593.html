@@ -1,37 +1,7 @@
-<>
-  <effect
-    meta={{
-      value: {},
-    }}
-    run={async () => {
-      meta.value = await api("/api/statuspekerja");
-    }}
-  />
+<div>
   <div class="card bg-white shadow">
     <div class="card-body">
       {/*<h2 class="card-title">Data Departemen</h2>*/}
-      <div class="flex mb-4">
-        <a
-          href="/add-status-kerja"
-          class="btn bg-blue-700 border-none hover:bg-blue-500"
-        >
-          <svg
-            width={17}
-            height={16}
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            class="mr-3"
-          >
-            <path
-              fillRule="evenodd"
-              clipRule="evenodd"
-              d="M7.5 14a6 6 0 100-12 6 6 0 000 12zm.75-8.25a.75.75 0 10-1.5 0v1.5h-1.5a.75.75 0 100 1.5h1.5v1.5a.75.75 0 001.5 0v-1.5h1.5a.75.75 0 000-1.5h-1.5v-1.5z"
-              fill="#F3F4F6"
-            />
-          </svg>
-          Tambah
-        </a>
-      </div>
       <div class="flex justify-between items-center mb-4">
         <select class="select select-bordered max-w-xs">
           <option disabled="disabled" selected="selected">
@@ -59,34 +29,36 @@
           <thead>
             <tr>
               <th>NO</th>
-              <th>Status</th>
+              <th>POSISI</th>
+              <th>JUMLAH PELAMAR</th>
+              <th>PERIODE SELEKSI</th>
+              <th>STATUS</th>
               <th></th>
             </tr>
           </thead>
           <tbody>
-            {meta.value?.data?.map((stsPekerja, idx) => (
-              <tr>
-                <th>{idx + 1}</th>
-                <td>{stsPekerja.status_pekerja}</td>
-                <td>
-                  <button class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-1 rounded focus:outline-none focus:shadow-outline">
-                    <a href={`/edit-alamat/` + stsPekerja.id}>
-                      <img src="/fimgs/ic-edit.x1.svg" />
-                    </a>
-                  </button>
-                  <button
-                    onClick={async () =>
-                      api(`/api/alamat/`, {
-                        id: stsPekerja.id,
-                      })
-                    }
-                    class="text-sm bg-red-500 hover:bg-red-700 text-white py-1 px-1 rounded focus:outline-none focus:shadow-outline"
-                  >
-                    <img src="/fimgs/ic-hapus.x1.svg" />
-                  </button>
-                </td>
-              </tr>
-            ))}
+            <tr>
+              <th>1</th>
+              <td>Production Leader</td>
+              <td>10 Pelamar</td>
+              <td>27 September 2021</td>
+              <td>
+                <div class="badge badge-accent">Seleksi Berkas</div>
+              </td>
+              <td>
+                <button
+                  type="button"
+                  class="mr-3 text-sm bg-green-500 hover:bg-green-700 text-white py-1 px-1 rounded focus:outline-none focus:shadow-outline"
+                >
+                  <img src="/fimgs/ic-view.x1.svg" />
+                </button>
+                <button class="text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-1 rounded focus:outline-none focus:shadow-outline">
+                  <a>
+                    <img src="/fimgs/ic-edit.x1.svg" />
+                  </a>
+                </button>
+              </td>
+            </tr>
           </tbody>
         </table>
       </div>
@@ -113,4 +85,4 @@
       </div>
     </div>
   </div>
-</>
+</div>

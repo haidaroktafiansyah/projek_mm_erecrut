@@ -6,7 +6,7 @@
       provinsi: {},
     }}
     run={async () => {
-      meta.value = await api("/api/alamat");
+      meta.value = await api("/api/alamatdepartemen");
       meta.action = {
         hapusAlamat: (alamatId) => {
           api(`/api/alamat/` + alamatId);
@@ -73,12 +73,12 @@
             </tr>
           </thead>
           <tbody>
-            {meta.value?.data?.map((alamatData, idx) => (
+            {meta.value.data?.map((alamatData, idx) => (
               <tr>
                 <th>{idx + 1}</th>
                 <td>{alamatData.alamat}</td>
-                <td>{alamatData.Kota.nama_kota}</td>
-                <td>{alamatData.Provinsi.nama_provinsi}</td>
+                <td>{alamatData.kotaId}</td>
+                <td>{alamatData.provinsiId}</td>
                 <td>
                   <button class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-1 rounded focus:outline-none focus:shadow-outline">
                     <a href={`/edit-alamat/` + alamatData.id}>
