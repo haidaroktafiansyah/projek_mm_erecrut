@@ -4,6 +4,5 @@
   "private": true,
   "scripts": {},
   "dependencies": {},
-  "types": "./src/index.ts",
-  "main": "./build/index.js"
+  "types": "./src/index.ts"
 }

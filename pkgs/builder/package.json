@@ -17,6 +17,5 @@
   },
   "devDependencies": {
     "@types/uniqid": "^5.3.0"
-  },
-  "main": "./build/index.js"
+  }
 }
