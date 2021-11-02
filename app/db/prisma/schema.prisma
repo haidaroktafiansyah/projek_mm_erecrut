@@ -141,6 +141,7 @@ model User {
   alamat        String?
   foto_ktp      String?
   foto_diri     String?
+  role          Role      @default(unverified)
 
   Pendidikan_User   Pendidikan_User? @relation(fields: [pendidikan_UserId], references: [id])
   pendidikan_UserId Int?
@@ -208,4 +209,9 @@ model Interview {
 
   Proses_Apply   Proses_Apply? @relation(fields: [proses_ApplyId], references: [id])
   proses_ApplyId Int?
+}
+
+enum Role {
+  verified
+  unverified
 }
