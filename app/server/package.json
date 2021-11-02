@@ -3,7 +3,13 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {},
-  "dependencies": {},
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "joi": "^17.4.2",
+    "nodemailer": "^6.7.0",
+    "uuid": "^8.3.2",
+    "uuidv4": "^6.2.12"
+  },
   "types": "./src/index.ts",
   "main": "./build/index.js"
 }
