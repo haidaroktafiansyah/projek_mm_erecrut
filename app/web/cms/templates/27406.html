@@ -1,9 +1,18 @@
 <>
   <effect
     meta={{
+      value: {},
       stsKerja: "",
+      idStsKerja: 0,
     }}
     run={async () => {
+      meta.idStsKerja = parseInt(params.id);
+      meta.value = await api(`/api/statuspekerja/d/` + meta.idStsKerja).then(
+        (res) => {
+          console.log(res.data.status_pekerja);
+          meta.stsKerja = res.data.status_pekerja;
+        }
+      );
       meta.action = {
         statusKerjaChange: (e) => {
           runInAction(() => {
@@ -12,12 +21,12 @@
           });
         },
         // Method Tambah
-        addStsKerja: (e) => {
-          api("/api/statuspekerja", {
-            status_pekerja: meta.stsKerja,
+        editStsKerja: (e) => {
+          api(`/api/statuspekerja/d/` + meta.idStsKerja, {
+            status_Pekerja: meta.stsKerja,
           }).then((e) => {
             console.log(e);
-            alert("Tambah Status Kerja Berhasil!");
+            alert("Edit Status Kerja Berhasil!");
             window.location.replace("/status-pekerjaan");
           });
         },
@@ -29,7 +38,7 @@
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          meta.action.addStsKerja();
+          meta.action.editStsKerja();
         }}
       >
         <div class="grid grid-cols-4 gap-2 mb-4">
@@ -39,7 +48,7 @@
           <div class="form-control col-span-3">
             <input
               type="text"
-              value={meta.alamat}
+              value={meta.stsKerja}
               onChange={(e) => meta.action.statusKerjaChange(e)}
               placeholder="Status Kerja"
               class="input input-bordered"
@@ -52,7 +61,7 @@
           <button class="btn btn-info mr-4" type="submit">
             Simpan
           </button>
-          <a href="/alamat" class="btn btn-error">
+          <a href="/status-pekerjaan" class="btn btn-error">
             Batal
           </a>
         </div>

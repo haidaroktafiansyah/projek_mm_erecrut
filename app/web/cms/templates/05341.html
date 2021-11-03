@@ -32,15 +32,19 @@
         },
         // Method Tambah
         addAlamat: (e) => {
-          api("/api/alamat", {
+          api("/api/alamatdepartemen", {
             alamat: meta.alamat,
             kotaId: meta.kota,
             provinsiId: meta.provinsi,
-          }).then((e) => {
-            console.log(e);
-            alert("Tambah Alamat Berhasil!");
-            window.location.replace("/alamat");
-          });
+          })
+            .then((e) => {
+              console.log(e);
+              alert("Tambah Alamat Berhasil!");
+              window.location.replace("/alamat");
+            })
+            .catch((err) => {
+              console.log(err);
+            });
         },
       };
     }}

@@ -46,15 +46,19 @@
         // Method Edit
         editAlamat: (e) => {
           api(`/api/alamatdepartemen/d/` + meta.id_almt, {
-            id: meta.id_almt,
+            // id: meta.id_almt,
             alamat: meta.alamat,
             kotaId: meta.kota,
             provinsiId: meta.provinsi,
-          }).then((e) => {
-            console.log(e);
-            alert("Edit Berhasil!");
-            window.location.replace("/alamat");
-          });
+          })
+            .then((e) => {
+              console.log(e);
+              alert("Edit Berhasil!");
+              window.location.replace("/alamat");
+            })
+            .catch((err) => {
+              console.log(err);
+            });
         },
       };
     }}
