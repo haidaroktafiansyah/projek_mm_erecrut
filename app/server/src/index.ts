@@ -26,6 +26,6 @@ transporter.verify((error, success) => {
 const Joi = require('joi');
 
 // password hasher
-const bcrypt = require('bcryptjs');
+const bcrypt = require('bcrypt');
 
 export const ext = { transporter, Joi, bcrypt }
