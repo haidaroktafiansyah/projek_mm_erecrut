@@ -23,7 +23,7 @@
         // Method Tambah
         editStsKerja: (e) => {
           api(`/api/statuspekerja/d/` + meta.idStsKerja, {
-            status_Pekerja: meta.stsKerja,
+            status_pekerja: meta.stsKerja,
           }).then((e) => {
             console.log(e);
             alert("Edit Status Kerja Berhasil!");
