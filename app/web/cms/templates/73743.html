@@ -69,7 +69,9 @@
               <tr>
                 <th>{idx + 1}</th>
                 <td>{departemenData.nama_departemen}</td>
-                <td>{departemenData.Alamat.alamat}</td>
+                <td>
+                  {departemenData.Alamat ? departemenData.Alamat.alamat : ""}
+                </td>
                 <td>
                   <button class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-1 rounded focus:outline-none focus:shadow-outline">
                     <a href={`/edit-departemen/` + departemenData.id}>
