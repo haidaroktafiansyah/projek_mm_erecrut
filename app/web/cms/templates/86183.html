@@ -12,17 +12,21 @@
     }}
     run={() => {}}
   />
-  <div className="flex h-screen overflow-hidden bg-white">
-    <div className="w-screen h-screen flex justify-center items-center bg-white">
-      <div className="p-10 flex justify-center items-center flex-col">
-        <img
-          className="mb-5"
-          src="/fimgs/image-login.x3.svg"
-          alt="BPS NJ"
-          width="200"
-          height="180"
-        />
-        <p className="mb-2 font-bold text-3xl text-gray-800">Masuk Sekarang</p>
+  <div className="flex overflow-hidden bg-white">
+    <div className="w-screen h-screen justify-center flex bg-white">
+      <div className="flex flex-col justify-center">
+        <div className="flex content-center justify-center">
+          <img
+            className="mb-5"
+            src="/fimgs/image-login.x3.svg"
+            alt="BPS NJ"
+            width="200"
+            height="180"
+          />
+        </div>
+        <p className="mb-2 font-bold text-3xl text-gray-800 text-center">
+          Masuk Sekarang
+        </p>
         <p className="mb-5 text-md text-gray-600 text-center">
           Sudah punya akun Recruitment? Yuk <br></br> masuk untuk mengakses
           lowongan pekerjan
@@ -78,6 +82,11 @@
               )}
             </span>
           </div>
+        </div>
+
+        <div class="flex justify-between mb-4">
+          <div>Ingatkan saya</div>
+          <div className="text-blue-500 font-semibold">Lupa Kata Sandi?</div>
         </div>
         <button
           className="bg-blue-500 hover:bg-blue-700 text-white font-bold p-3 rounded w-80"
