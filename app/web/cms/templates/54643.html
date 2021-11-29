@@ -1,1 +1,8 @@
-<m-page style="background-color: #fff;">{children}</m-page>
+<>
+  <m-page className="flex h-screen overflow-hidden bg-white">
+    {/* Content area */}
+    <div className="relative flex flex-col flex-1 overflow-y-auto overflow-x-hidden">
+      <main>{children}</main>
+    </div>
+  </m-page>
+</>
