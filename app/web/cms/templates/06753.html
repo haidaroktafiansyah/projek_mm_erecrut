@@ -79,21 +79,22 @@
                 <td>{lowonganKerja.jumlah_diterima}</td>
                 <td>{lowonganKerja.status_loker}</td>
                 <td>
-                  <button class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-1 rounded focus:outline-none focus:shadow-outline">
-                    <a href={`/edit-alamat/` + lowonganKerja.id}>
-                      <img src="/fimgs/ic-edit.x1.svg" /> Edit
-                    </a>
-                  </button>
-                  <button
+                  <a
+                    href={`/edit-alamat/` + lowonganKerja.id}
+                    class="btn bg-blue-500 border-none hover:bg-blue-700 mr-4"
+                  >
+                    <img src="/fimgs/ic-edit.x1.svg" /> Edit
+                  </a>
+                  <a
                     onClick={async () =>
                       api(`/api/alamat/`, {
                         id: lowonganKerja.id,
                       })
                     }
-                    class="text-sm bg-red-500 hover:bg-red-700 text-white py-1 px-1 rounded focus:outline-none focus:shadow-outline"
+                    class="btn bg-red-500 border-none hover:bg-red-700"
                   >
                     <img src="/fimgs/ic-hapus.x1.svg" /> Hapus
-                  </button>
+                  </a>
                 </td>
               </tr>
             ))}

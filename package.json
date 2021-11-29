@@ -38,7 +38,6 @@
     "autoprefixer": "^10.2.5",
     "execa": "^5.0.0",
     "fastest-validator": "^1.12.0",
-    "framework7": "^6.3.9",
     "fs-extra": "^9.1.0",
     "globby": "^11.0.3",
     "isomorphic-git": "^1.8.1",
