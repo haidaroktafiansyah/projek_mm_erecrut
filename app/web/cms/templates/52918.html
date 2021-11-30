@@ -1,4 +1,223 @@
-<div>
-  <hello-world />
-  <div>Ini Page Baru</div>
-</div>
+<>
+  <div class="card bg-white shadow">
+    <div class="card-body">
+      <form
+      // onSubmit={(e) => {
+      //   e.preventDefault();
+      //   meta.action.addPosisi();
+      // }}
+      >
+        <div>
+          <button class="btn btn-primary">
+            <a href="/m/data/identitas">Kembali</a>
+          </button>
+        </div>
+        <br></br>
+        <h2 class="card-title">Pendidikan Formal & Organisasi</h2>
+
+        <div class="grid grid-cols-4 gap-1 mb-1">
+          <label class="label">
+            <span class="label-text">Jenjang</span>
+          </label>
+          <br></br>
+          <select
+            class="select select-bordered w-full col-span-3"
+            // value={meta.stsPekerja}
+            // onChange={(e) => meta.action.stsPekerjaChange(e)}
+          >
+            <option>Pilih Jenjang</option>
+            {/*{meta.listStsPekerja?.data?.map((listStsPekerja, idx) => (*/}
+            {/*<option value={listStsPekerja.id}>*/}
+            {/*{listStsPekerja.status_pekerja}*/}
+            {/*</option>*/}
+            {/*))}*/}
+          </select>
+        </div>
+
+        <div class="grid grid-cols-1 gap-1 mb-1">
+          <label class="label">
+            <span class="label-text">Tahun Kelulusan</span>
+          </label>
+          <label class="label">
+            <span class="label-text">Periode</span>
+          </label>
+          <div class="flex self-stretch flex-col space-y-4 items-start justify-start">
+            <div class="flex self-stretch items-start justify-start">
+              <input
+                placeholder=""
+                class={
+                  "flex items-center justify-start py-2 px-4 bg-gray-100 border rounded border-gray-100 w-full"
+                }
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 gap-1 mb-1">
+          <label class="label">
+            <span class="label-text">Sampai</span>
+          </label>
+          <div class="flex self-stretch flex-col space-y-4 items-start justify-start">
+            <div class="flex self-stretch items-start justify-start">
+              <input
+                placeholder=""
+                class={
+                  "flex items-center justify-start py-2 px-4 bg-gray-100 border rounded border-gray-100 w-full"
+                }
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-4 gap-1 mb-1">
+          <label class="label">
+            <span class="label-text">Instansi/Universitas</span>
+          </label>
+          <br></br>
+          <select
+            class="select select-bordered w-full col-span-3"
+            // value={meta.stsPekerja}
+            // onChange={(e) => meta.action.stsPekerjaChange(e)}
+          >
+            <option>Pilih Instansi/Universitas</option>
+            {/*{meta.listStsPekerja?.data?.map((listStsPekerja, idx) => (*/}
+            {/*<option value={listStsPekerja.id}>*/}
+            {/*{listStsPekerja.status_pekerja}*/}
+            {/*</option>*/}
+            {/*))}*/}
+          </select>
+        </div>
+
+        <div class="grid grid-cols-1 gap-1 mb-1">
+          <label class="label">
+            <span class="label-text">Jurusan</span>
+          </label>
+          <div class="flex self-stretch flex-col space-y-4 items-start justify-start">
+            <div class="flex self-stretch items-start justify-start">
+              <input
+                placeholder=""
+                class={
+                  "flex items-center justify-start py-2 px-4 bg-gray-100 border rounded border-gray-100 w-full"
+                }
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 gap-1 mb-4">
+          <label class="label">
+            <span class="label-text">GPA/Grade</span>
+          </label>
+          <div class="flex self-stretch flex-col space-y-4 items-start justify-start">
+            <div class="flex self-stretch items-start justify-start">
+              <input
+                placeholder=""
+                class={
+                  "flex items-center justify-start py-2 px-4 bg-gray-100 border rounded border-gray-100 w-full"
+                }
+              />
+            </div>
+          </div>
+        </div>
+
+        <h2 class="card-title">Dokumen</h2>
+        <div class="grid grid-cols-1 gap-1 mb-1">
+          <label class="label">
+            <span class="label-text">Ijazah</span>
+          </label>
+          <div class="flex self-stretch flex-col space-y-4 items-start justify-start">
+            <div class="flex self-stretch items-start justify-start">
+              <input
+                placeholder="Pilih dokumen"
+                class={
+                  "flex items-center justify-start py-2 px-4 bg-gray-100 border rounded border-gray-100 w-full"
+                }
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 gap-1 mb-4">
+          <label class="label">
+            <span class="label-text">CV</span>
+          </label>
+          <div class="flex self-stretch flex-col space-y-4 items-start justify-start">
+            <div class="flex self-stretch items-start justify-start">
+              <input
+                placeholder="Pilih dokumen"
+                class={
+                  "flex items-center justify-start py-2 px-4 bg-gray-100 border rounded border-gray-100 w-full"
+                }
+              />
+            </div>
+          </div>
+        </div>
+
+        <h2 class="card-title">Sertifikat Komunitas/Organisasi</h2>
+        <div class="grid grid-cols-1 gap-1 mb-1">
+          <label class="label">
+            <span class="label-text">Sertifikat</span>
+          </label>
+          <div class="flex self-stretch flex-col space-y-4 items-start justify-start">
+            <div class="flex self-stretch items-start justify-start">
+              <input
+                placeholder="Pilih dokumen"
+                class={
+                  "flex items-center justify-start py-2 px-4 bg-gray-100 border rounded border-gray-100 w-full"
+                }
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 gap-1 mb-1">
+          <div class="flex self-stretch flex-col space-y-4 items-start justify-start">
+            <div class="flex self-stretch items-start justify-start">
+              <input
+                placeholder="Pilih dokumen"
+                class={
+                  "flex items-center justify-start py-2 px-4 bg-gray-100 border rounded border-gray-100 w-full"
+                }
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 gap-1 mb-1">
+          <div class="flex self-stretch flex-col space-y-4 items-start justify-start">
+            <div class="flex self-stretch items-start justify-start">
+              <input
+                placeholder="Pilih dokumen"
+                class={
+                  "flex items-center justify-start py-2 px-4 bg-gray-100 border rounded border-gray-100 w-full"
+                }
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 gap-1 mb-4">
+          <div class="flex self-stretch flex-col space-y-4 items-start justify-start">
+            <div class="flex self-stretch items-start justify-start">
+              <input
+                placeholder="Tambahkan"
+                class={
+                  "flex items-center justify-start py-2 px-4 bg-gray-100 border rounded border-gray-100 w-full"
+                }
+              />
+            </div>
+          </div>
+        </div>
+
+        <h1>2 dari 3</h1>
+        <br></br>
+
+        <div>
+          <button class="btn btn-primary">
+            <a href="/m/data/keahlian">Simpan Perubahan</a>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</>
