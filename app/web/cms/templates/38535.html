@@ -1,0 +1,179 @@
+<>
+  <div class="card bg-white shadow">
+    <div class="card-body">
+      <form
+      // onSubmit={(e) => {
+      //   e.preventDefault();
+      //   meta.action.addPosisi();
+      // }}
+      >
+        <h2 class="card-title">Identitas Pribadi</h2>
+        <div class="grid grid-cols-4 gap-1 mb-1">
+          <label class="label">
+            <span class="label-text">Nama Lengkap</span>
+          </label>
+          <div class="form-control col-span-3">
+            <input
+              type="text"
+              // value={meta.persyaratan}
+              // onChange={(e) => meta.action.persyaratanChange(e)}
+              placeholder="Placeholder"
+              class="input input-bordered"
+            />
+          </div>
+        </div>
+
+        <div class="grid grid-cols-4 gap-1 mb-1">
+          <label class="label">
+            <span class="label-text">NIK</span>
+          </label>
+          <div class="form-control col-span-3">
+            <input
+              type="text"
+              // value={meta.persyaratan}
+              // onChange={(e) => meta.action.persyaratanChange(e)}
+              placeholder="Placeholder"
+              class="input input-bordered"
+            />
+          </div>
+        </div>
+
+        <div class="grid grid-cols-4 gap-1 mb-1">
+          <label class="label">
+            <span class="label-text">Tempat Kelahiran</span>
+          </label>
+          <div class="form-control col-span-3">
+            <input
+              type="text"
+              // value={meta.persyaratan}
+              // onChange={(e) => meta.action.persyaratanChange(e)}
+              placeholder="Placeholder"
+              class="input input-bordered"
+            />
+          </div>
+        </div>
+
+        <div class="grid grid-cols-4 gap-1 mb-1">
+          <label class="label">
+            <span class="label-text">Tanggal Lahir</span>
+          </label>
+          <div class="form-control col-span-3">
+            <input
+              type="date"
+              class="input input-bordered"
+              // value={meta.tglMulai}
+              // onChange={(e) => meta.action.tglMulaiChange(e)}
+            />
+          </div>
+        </div>
+
+        <div class="grid grid-cols-4 gap-1 mb-4">
+          <label class="label">
+            <span class="label-text">Jenis Kelamin</span>
+          </label>
+          <select
+            class="select select-bordered w-full col-span-3"
+            // value={meta.stsPekerja}
+            // onChange={(e) => meta.action.stsPekerjaChange(e)}
+          >
+            <option>Pilih Jenis Kelamin</option>
+            {/*{meta.listStsPekerja?.data?.map((listStsPekerja, idx) => (*/}
+            {/*<option value={listStsPekerja.id}>*/}
+            {/*{listStsPekerja.status_pekerja}*/}
+            {/*</option>*/}
+            {/*))}*/}
+          </select>
+        </div>
+
+        <h2 class="card-title">Alamat</h2>
+        <div class="grid grid-cols-4 gap-1 mb-1">
+          <label class="label">
+            <span class="label-text">Alamat saat ini</span>
+          </label>
+          <div class="form-control col-span-3">
+            <input
+              type="text"
+              // value={meta.posisi}
+              // onChange={(e) => meta.action.posisiChange(e)}
+              placeholder="Placeholder"
+              class="input input-bordered"
+            />
+          </div>
+        </div>
+
+        <div class="grid grid-cols-4 gap-1 mb-1">
+          <label class="label">
+            <span class="label-text">Provinsi</span>
+          </label>
+          <select
+            class="select select-bordered w-full col-span-3"
+            // value={meta.stsPekerja}
+            // onChange={(e) => meta.action.stsPekerjaChange(e)}
+          >
+            <option>Pilih Provinsi</option>
+            {/*{meta.listStsPekerja?.data?.map((listStsPekerja, idx) => (*/}
+            {/*<option value={listStsPekerja.id}>*/}
+            {/*{listStsPekerja.status_pekerja}*/}
+            {/*</option>*/}
+            {/*))}*/}
+          </select>
+        </div>
+
+        <div class="grid grid-cols-4 gap-1 mb-4">
+          <label class="label">
+            <span class="label-text">Kota</span>
+          </label>
+          <select
+            class="select select-bordered w-full col-span-3"
+            // value={meta.stsPekerja}
+            // onChange={(e) => meta.action.stsPekerjaChange(e)}
+          >
+            <option>Pilih Kota</option>
+            {/*{meta.listStsPekerja?.data?.map((listStsPekerja, idx) => (*/}
+            {/*<option value={listStsPekerja.id}>*/}
+            {/*{listStsPekerja.status_pekerja}*/}
+            {/*</option>*/}
+            {/*))}*/}
+          </select>
+        </div>
+
+        <h2 class="card-title">Foto Identitas</h2>
+        <div class="grid grid-cols-4 gap-1 mb-1">
+          <label class="label">
+            <span class="label-text">Pas Foto 4x6</span>
+          </label>
+          <div class="form-control col-span-3">
+            <input
+              type="text"
+              // value={meta.posisi}
+              // onChange={(e) => meta.action.posisiChange(e)}
+              placeholder="Placeholder"
+              class="input input-bordered"
+            />
+          </div>
+        </div>
+
+        <div class="grid grid-cols-4 gap-1 mb-4">
+          <label class="label">
+            <span class="label-text">Foto KTP</span>
+          </label>
+          <div class="form-control col-span-3">
+            <input
+              type="text"
+              // value={meta.persyaratan}
+              // onChange={(e) => meta.action.persyaratanChange(e)}
+              placeholder="Placeholder"
+              class="input input-bordered"
+            />
+          </div>
+        </div>
+
+        <div>
+          <button class="btn btn-primary" type="submit">
+            Simpan Perubahan
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</>
