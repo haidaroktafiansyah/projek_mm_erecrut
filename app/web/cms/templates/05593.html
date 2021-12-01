@@ -46,17 +46,18 @@
                 <div class="badge badge-accent">Seleksi Berkas</div>
               </td>
               <td>
-                <button
+                <a
                   type="button"
-                  class="mr-3 text-sm bg-green-500 hover:bg-green-700 text-white py-1 px-1 rounded focus:outline-none focus:shadow-outline"
+                  class="btn bg-green-500 border-none hover:bg-green-700 mr-4"
                 >
-                  <img src="/fimgs/ic-view.x1.svg" />
-                </button>
-                <button class="text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-1 rounded focus:outline-none focus:shadow-outline">
-                  <a>
-                    <img src="/fimgs/ic-edit.x1.svg" />
-                  </a>
-                </button>
+                  <img src="/fimgs/ic-view.x1.svg" /> Detail
+                </a>
+                <a
+                  // href={`/edit-alamat/` + lowonganKerja.id}
+                  class="btn bg-blue-500 border-none hover:bg-blue-700 mr-4"
+                >
+                  <img src="/fimgs/ic-edit.x1.svg" /> Edit
+                </a>
               </td>
             </tr>
           </tbody>
@@ -68,14 +69,14 @@
           <button class="btn btn-sm bg-white text-black hover:text-white">
             Previous
           </button>
+          <button class="btn btn-sm btn-active">1</button>
           <button class="btn btn-sm bg-white text-black hover:text-white">
-            1
+            2
           </button>
-          <button class="btn btn-sm btn-active">2</button>
-          <button class="btn btn-sm btn bg-white text-black hover:text-white">
+          <button class="btn btn-sm bg-white text-black hover:text-white">
             3
           </button>
-          <button class="btn btn-sm btn bg-white text-black hover:text-white">
+          <button class="btn btn-sm bg-white text-black hover:text-white">
             4
           </button>
           <button class="btn btn-sm bg-white text-black hover:text-white">
