@@ -28,6 +28,7 @@ module.exports = {
     [
       {
         'mytheme': {
+          // custom color
           'primary': '#1d4ed8',
           'primary-focus': '#3b82f6',
           'primary-content': '#ffffff',
