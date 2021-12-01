@@ -1,4 +1,120 @@
-<div>
-  <hello-world />
-  <div>Ini Page Baru</div>
-</div>
+<>
+  {/*<effect*/}
+  {/*meta={{*/}
+  {/*value: {},*/}
+  {/*alamat: "",*/}
+  {/*namaDepart: "",*/}
+  {/*listAlamat: {},*/}
+  {/*id_depart: 0,*/}
+  {/*}}*/}
+  {/*run={async () => {*/}
+  {/*meta.listAlamat = await api("/api/alamatdepartemen");*/}
+  {/*meta.id_depart = parseInt(params.id);*/}
+  {/*console.log(meta.id_depart);*/}
+  {/*meta.value = await api(`/api/departemen/d/` + meta.id_depart).then(*/}
+  {/*(res) => {*/}
+  {/*console.log(res.data);*/}
+  {/*meta.namaDepart = res.data.nama_departemen;*/}
+  {/*meta.alamat = res.data.alamatId;*/}
+  {/*}*/}
+  {/*);*/}
+  {/**/}
+  {/*meta.action = {*/}
+  {/*namaDepartChange: (e) => {*/}
+  {/*runInAction(() => {*/}
+  {/*meta.namaDepart = e.target.value;*/}
+  {/*console.log(meta.namaDepart);*/}
+  {/*});*/}
+  {/*},*/}
+  {/*alamatChange: (e) => {*/}
+  {/*runInAction(() => {*/}
+  {/*meta.alamat = e.target.value;*/}
+  {/*console.log(meta.alamat);*/}
+  {/*});*/}
+  {/*},*/}
+  {/*// Method Tambah*/}
+  {/*addDepart: (e) => {*/}
+  {/*api(`/api/departemen/d/` + meta.id_depart, {*/}
+  {/*nama_departemen: meta.namaDepart,*/}
+  {/*alamatId: meta.alamat,*/}
+  {/*}).then((e) => {*/}
+  {/*console.log(e);*/}
+  {/*alert("Tambah Departemen Berhasil!");*/}
+  {/*window.location.replace("/departemen");*/}
+  {/*});*/}
+  {/*},*/}
+  {/*};*/}
+  {/*}}*/}
+  {/*/>*/}
+  <div class="card bg-white shadow">
+    <div class="card-body">
+      <h2 class="card-title">Edit Seleksi Pelamar</h2>
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          meta.action.addDepart();
+        }}
+      >
+        <div class="grid grid-cols-4 gap-2 mb-4">
+          <label class="label">
+            <span class="label-text">Posisi</span>
+          </label>
+          <div class="form-control col-span-3">
+            <input
+              type="text"
+              placeholder="Placeholder"
+              class="input input-bordered"
+              // value={meta.namaDepart}
+              // onChange={(e) => meta.action.namaDepartChange(e)}
+              required
+            />
+          </div>
+        </div>
+
+        <div class="grid grid-cols-4 gap-2 mb-4">
+          <label class="label">
+            <span class="label-text">Pelamar</span>
+          </label>
+          <div class="form-control col-span-3">
+            <input
+              type="text"
+              placeholder="Placeholder"
+              class="input input-bordered"
+              // value={meta.namaDepart}
+              // onChange={(e) => meta.action.namaDepartChange(e)}
+              required
+            />
+          </div>
+        </div>
+
+        <div class="grid grid-cols-4 gap-2 mb-4">
+          <label class="label">
+            <span class="label-text">Status</span>
+          </label>
+          <select
+            class="select select-bordered w-full max-w-xs col-span-3"
+            value={meta.alamat}
+            onChange={(e) => meta.action.alamatChange(e)}
+            required
+          >
+            <option disabled="disabled" selected="selected">
+              Pilih Status
+            </option>
+            {meta.listAlamat?.data?.map((listAlamat, idx) => (
+              <option value={listAlamat.id}>{listAlamat.alamat}</option>
+            ))}
+          </select>
+        </div>
+
+        <div>
+          <a href="/departemen" class="btn btn-error btn-outline mr-4">
+            Batal
+          </a>
+          <button type="submit" class="btn btn-primary">
+            Simpan
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</>
