@@ -1,4 +1,223 @@
-<div>
-  <hello-world />
-  <div>Ini Page Baru</div>
-</div>
+<>
+  <effect
+    meta={{
+      stsPekerja: "",
+      posisi: "",
+      departemen: "",
+      tglMulai: "",
+      tglAkhir: "",
+      status: "",
+      jmlDiterima: "",
+      info: "",
+      listPosisi: {},
+      listStsPekerja: {},
+      listDepart: {},
+    }}
+    run={async () => {
+      meta.listPosisi = await api("/api/kebutuhanloker");
+      meta.listStsPekerja = await api("/api/statuspekerja");
+      meta.listDepart = await api("/api/departemen");
+
+      meta.action = {
+        stsPekerjaChange: (e) => {
+          runInAction(() => {
+            meta.stsPekerja = e.target.value;
+            console.log(meta.stsPekerja);
+          });
+        },
+        posisiChange: (e) => {
+          runInAction(() => {
+            meta.posisi = e.target.value;
+            console.log(meta.posisi);
+          });
+        },
+        departemenChange: (e) => {
+          runInAction(() => {
+            meta.departemen = e.target.value;
+            console.log(meta.departemen);
+          });
+        },
+        tglMulaiChange: (e) => {
+          runInAction(() => {
+            meta.tglMulai = e.target.value;
+            console.log(meta.tglMulai);
+          });
+        },
+        tglAkhirChange: (e) => {
+          runInAction(() => {
+            meta.tglAkhir = e.target.value;
+            console.log(meta.tglAkhir);
+          });
+        },
+        statusChange: (e) => {
+          runInAction(() => {
+            meta.status = e.target.value;
+            console.log(meta.status);
+          });
+        },
+        jmlDiterimaChange: (e) => {
+          runInAction(() => {
+            meta.jmlDiterima = e.target.value;
+            console.log(meta.jmlDiterima);
+          });
+        },
+        infoChange: (e) => {
+          runInAction(() => {
+            meta.info = e.target.value;
+            console.log(meta.info);
+          });
+        },
+        // Method Tambah
+        addAlamat: (e) => {
+          api("/api/alamatdepartemen", {
+            alamat: meta.alamat,
+            kotaId: meta.kota,
+            provinsiId: meta.provinsi,
+          })
+            .then((e) => {
+              console.log(e);
+              alert("Tambah Alamat Berhasil!");
+              window.location.replace("/alamat");
+            })
+            .catch((err) => {
+              console.log(err);
+            });
+        },
+      };
+    }}
+  />
+  <div class="card bg-white shadow">
+    <div class="card-body">
+      <div class="grid grid-cols-4 gap-2 mb-4">
+        <label class="label">
+          <span class="label-text">Posisi</span>
+        </label>
+        <select
+          class="select select-bordered w-full col-span-3"
+          value={meta.posisi}
+          onChange={(e) => meta.action.posisiChange(e)}
+        >
+          <option>Pilih Posisi</option>
+          {meta.listPosisi?.data?.map((listPosisi, idx) => (
+            <option value={listPosisi.id}>{listPosisi.posisi}</option>
+          ))}
+        </select>
+      </div>
+
+      <div class="grid grid-cols-4 gap-2 mb-4">
+        <label class="label">
+          <span class="label-text">Status Pekerjaan</span>
+        </label>
+        <select
+          class="select select-bordered w-full col-span-3"
+          value={meta.stsPekerja}
+          onChange={(e) => meta.action.stsPekerjaChange(e)}
+        >
+          <option>Pilih Status Pekerjaan</option>
+          {meta.listStsPekerja?.data?.map((listStsPekerja, idx) => (
+            <option value={listStsPekerja.id}>
+              {listStsPekerja.status_pekerja}
+            </option>
+          ))}
+        </select>
+      </div>
+
+      <div class="grid grid-cols-4 gap-2 mb-4">
+        <label class="label">
+          <span class="label-text">Tanggal Mulai</span>
+        </label>
+        <div class="form-control col-span-3">
+          <input
+            type="date"
+            class="input input-bordered"
+            value={meta.tglMulai}
+            onChange={(e) => meta.action.tglMulaiChange(e)}
+          />
+        </div>
+      </div>
+
+      <div class="grid grid-cols-4 gap-2 mb-4">
+        <label class="label">
+          <span class="label-text">Tanggal Selesai</span>
+        </label>
+        <div class="form-control col-span-3">
+          <input
+            type="date"
+            class="input input-bordered"
+            value={meta.tglAkhir}
+            onChange={(e) => meta.action.tglAkhirChange(e)}
+          />
+        </div>
+      </div>
+
+      <div class="grid grid-cols-4 gap-2 mb-4">
+        <label class="label">
+          <span class="label-text">Departemen</span>
+        </label>
+        <select
+          class="select select-bordered w-full col-span-3"
+          value={meta.departemen}
+          onChange={(e) => meta.action.departemenChange(e)}
+        >
+          <option>Pilih Departemen</option>
+          {meta.listDepart?.data?.map((listDepart, idx) => (
+            <option value={listDepart.id}>{listDepart.nama_departemen}</option>
+          ))}
+        </select>
+      </div>
+
+      <div class="grid grid-cols-4 gap-2 mb-4">
+        <label class="label">
+          <span class="label-text">Status</span>
+        </label>
+        <select
+          class="select select-bordered w-full col-span-3"
+          value={meta.departemen}
+          onChange={(e) => meta.action.departemenChange(e)}
+        >
+          <option disabled="disabled" selected="selected">
+            Pilih Status
+          </option>
+          <option value="tersedia">Tersedia</option>
+          <option value="berakhir">Berakhir</option>
+        </select>
+      </div>
+
+      <div class="grid grid-cols-4 gap-2 mb-4">
+        <label class="label">
+          <span class="label-text">Jumlah Yang Dibutuhkan</span>
+        </label>
+        <div class="form-control col-span-3">
+          <input
+            type="number"
+            placeholder="-"
+            class="input input-bordered"
+            value={meta.jmlDiterima}
+            onChange={(e) => meta.action.jmlDiterimaChange(e)}
+          />
+        </div>
+      </div>
+
+      <div class="grid grid-cols-4 gap-2 mb-4">
+        <label class="label">
+          <span class="label-text">Tambahan Informasi</span>
+        </label>
+        <div class="form-control col-span-3">
+          <input
+            type="text"
+            placeholder="-"
+            class="input input-bordered"
+            value={meta.info}
+            onChange={(e) => meta.action.infoChange(e)}
+          />
+        </div>
+      </div>
+
+      <div>
+        <a href="/data-lowongan" class="btn btn-primary">
+          Kembali
+        </a>
+      </div>
+    </div>
+  </div>
+</>

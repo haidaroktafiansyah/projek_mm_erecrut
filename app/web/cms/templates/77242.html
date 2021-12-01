@@ -1,54 +1,54 @@
 <>
-  <effect
-    meta={{
-      value: {},
-      posisi: "",
-      jobDesc: "",
-      persyaratan: "",
-      id_posisi: null,
-    }}
-    run={async () => {
-      // get params id alamat
-      meta.id_posisi = parseInt(params.id);
-      // get posisi lowongan by id
-      meta.value = await api(`/api/kebutuhanloker/d/` + meta.id_posisi).then(
-        (res) => {
-          meta.posisi = res.data.posisi;
-          meta.jobDesc = res.data.jobdesc;
-          meta.persyaratan = res.data.persyaratan;
-        }
-      );
-      meta.action = {
-        posisiChange: (e) => {
-          runInAction(() => {
-            meta.posisi = e.target.value;
-          });
-        },
-        jobDescChange: (e) => {
-          runInAction(() => {
-            meta.jobDesc = e.target.value;
-          });
-        },
-        persyaratanChange: (e) => {
-          runInAction(() => {
-            meta.persyaratan = e.target.value;
-          });
-        },
-        // Method Tambah
-        addPosisi: (e) => {
-          api(`/api/kebutuhanloker/d/` + meta.id_posisi, {
-            posisi: meta.posisi,
-            jobdesc: meta.jobDesc,
-            persyaratan: meta.persyaratan,
-          }).then((e) => {
-            console.log(e);
-            alert("Edit Posisi Berhasil!");
-            window.location.replace("/posisi-lowongan");
-          });
-        },
-      };
-    }}
-  />
+  {/*<effect*/}
+  {/*meta={{*/}
+  {/*value: {},*/}
+  {/*posisi: "",*/}
+  {/*jobDesc: "",*/}
+  {/*persyaratan: "",*/}
+  {/*id_posisi: null,*/}
+  {/*}}*/}
+  {/*run={async () => {*/}
+  {/*// get params id alamat*/}
+  {/*meta.id_posisi = parseInt(params.id);*/}
+  {/*// get posisi lowongan by id*/}
+  {/*meta.value = await api(`/api/kebutuhanloker/d/` + meta.id_posisi).then(*/}
+  {/*(res) => {*/}
+  {/*meta.posisi = res.data.posisi;*/}
+  {/*meta.jobDesc = res.data.jobdesc;*/}
+  {/*meta.persyaratan = res.data.persyaratan;*/}
+  {/*}*/}
+  {/*);*/}
+  {/*meta.action = {*/}
+  {/*posisiChange: (e) => {*/}
+  {/*runInAction(() => {*/}
+  {/*meta.posisi = e.target.value;*/}
+  {/*});*/}
+  {/*},*/}
+  {/*jobDescChange: (e) => {*/}
+  {/*runInAction(() => {*/}
+  {/*meta.jobDesc = e.target.value;*/}
+  {/*});*/}
+  {/*},*/}
+  {/*persyaratanChange: (e) => {*/}
+  {/*runInAction(() => {*/}
+  {/*meta.persyaratan = e.target.value;*/}
+  {/*});*/}
+  {/*},*/}
+  {/*// Method Tambah*/}
+  {/*addPosisi: (e) => {*/}
+  {/*api(`/api/kebutuhanloker/d/` + meta.id_posisi, {*/}
+  {/*posisi: meta.posisi,*/}
+  {/*jobdesc: meta.jobDesc,*/}
+  {/*persyaratan: meta.persyaratan,*/}
+  {/*}).then((e) => {*/}
+  {/*console.log(e);*/}
+  {/*alert("Edit Posisi Berhasil!");*/}
+  {/*window.location.replace("/posisi-lowongan");*/}
+  {/*});*/}
+  {/*},*/}
+  {/*};*/}
+  {/*}}*/}
+  {/*/>*/}
   <div class="card bg-white shadow">
     <div class="card-body">
       <form
