@@ -65,7 +65,7 @@
               <th>TANGGAL SELESAI</th>
               <th>SLOT</th>
               <th>STATUS</th>
-              <th></th>
+              <th>Aksi</th>
             </tr>
           </thead>
           <tbody>
@@ -77,7 +77,11 @@
                 <td>{lowonganKerja.start_open}</td>
                 <td>{lowonganKerja.end_open}</td>
                 <td>{lowonganKerja.jumlah_diterima}</td>
-                <td>{lowonganKerja.status_loker}</td>
+                <td>
+                  <div class="badge badge-accent">
+                    {lowonganKerja.status_loker}
+                  </div>
+                </td>
                 <td>
                   <a
                     // href="/"
