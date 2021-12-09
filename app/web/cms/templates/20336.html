@@ -3,28 +3,33 @@
   <div className="flex h-screen overflow-hidden bg-white ">
     <div className="w-screen h-screen flex justify-center items-center bg-white">
       <div className="p-10 flex justify-center items-center flex-col">
-        <img
-          className="mb-5"
-          src="/fimgs/image-register.x3.svg"
-          alt="BPS NJ"
-          width="200"
-          height="180"
-        />
         <p className="mb-2 font-bold text-3xl text-gray-800">
-          Pendaftaran Akun Berhasil
+          Atur ulang kata sandi
         </p>
         <p className="mb-5 text-md text-gray-600 text-center">
-          Berhasil membuat akun Recruitment dengan e-mail <br></br>
-          <a>nuranggita0304@gmail.com</a>
+          Masukkan e-mail yang terdaftar.<br></br>Kami akan mengirimkan kode
+          verifikasi <br></br> untuk atur ulang kata sandi.
         </p>
+
+        <div className="form-control mb-4">
+          <div className="flex space-x-2">
+            <input
+              type="text"
+              className="w-80 input input-bordered"
+              autoComplete="off"
+              placeholder="Email"
+              name="email"
+            />
+          </div>
+        </div>
 
         <button
           className="bg-blue-500 hover:bg-blue-700 text-white font-bold p-3 rounded w-80"
           onClick={() => {
-            window.location.replace("/m/login");
+            window.location.replace("/m/forget-password/verif");
           }}
         >
-          <span>Masuk ke Recruitment</span>
+          <span>Berikutnya</span>
         </button>
       </div>
     </div>

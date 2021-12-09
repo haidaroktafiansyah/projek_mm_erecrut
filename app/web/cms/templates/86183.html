@@ -24,13 +24,16 @@
             height="180"
           />
         </div>
+
         <p className="mb-2 font-bold text-3xl text-gray-800 text-center">
           Masuk Sekarang
         </p>
+
         <p className="mb-5 text-md text-gray-600 text-center">
           Sudah punya akun Recruitment? Yuk <br></br> masuk untuk mengakses
           lowongan pekerjaan.
         </p>
+
         <div class="flex self-stretch flex-col space-y-4 items-start justify-start">
           <div class="flex self-stretch items-start justify-start">
             <input
@@ -41,15 +44,47 @@
             />
           </div>
         </div>
-        <div class="flex self-stretch flex-col space-y-4 items-start justify-start mt-4">
-          <div class="flex self-stretch items-start justify-start">
+        <br></br>
+
+        <div className="form-control mb-4">
+          <div className="relative">
             <input
-              type="password"
+              type={meta.passwordShown ? "text" : "password"}
+              name="password"
               placeholder="Password"
-              class={
-                "flex items-center justify-start py-2 px-4 bg-gray-100 border rounded border-gray-100 w-full"
-              }
+              className="w-80 pr-16 input input-bordered"
             />
+            <span
+              role="button"
+              className="absolute top-0 right-0 rounded-l-none btn btn-ghost"
+              onMouseDown={meta.togglePasswordVisiblity()}
+              onMouseUp={meta.togglePasswordVisiblity()}
+              onTouchStart={meta.togglePasswordVisiblity()}
+              onTouchEnd={meta.togglePasswordVisiblity()}
+            >
+              {/*Dibolehkan tekan tahan lama mouse kemudian geser lepas untuk mempertahan posisi state*/}
+              {meta.passwordShown ? (
+                <span>lihat</span>
+              ) : (
+                <svg
+                  width={20}
+                  height={20}
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fillRule="evenodd"
+                    clipRule="evenodd"
+                    d="M3.707 2.293a1 1 0 00-1.414 1.414l14 14a1 1 0 001.414-1.414l-1.473-1.473A10.014 10.014 0 0019.542 10C18.268 5.943 14.478 3 10 3a9.958 9.958 0 00-4.512 1.074l-1.78-1.781zm4.261 4.26l1.514 1.515a2.003 2.003 0 012.45 2.45l1.514 1.514a4 4 0 00-5.478-5.478z"
+                    fill="#6B7280"
+                  />
+                  <path
+                    d="M12.454 16.697L9.75 13.992a4 4 0 01-3.742-3.741L2.335 6.578A9.98 9.98 0 00.458 10c1.274 4.057 5.065 7 9.542 7 .847 0 1.669-.105 2.454-.303z"
+                    fill="#6B7280"
+                  />
+                </svg>
+              )}
+            </span>
           </div>
         </div>
 
@@ -60,9 +95,10 @@
             <span>Ingatkan saya</span>
           </div>
           <div className="text-blue-500 font-semibold">
-            <a>Lupa Kata Sandi?</a>
+            <a href="/m/forget-password">Lupa Kata Sandi?</a>
           </div>
         </div>
+
         <button
           className="bg-blue-500 hover:bg-blue-700 text-white font-bold p-3 rounded w-80"
           onClick={() => {
@@ -71,6 +107,7 @@
         >
           <span>Login</span>
         </button>
+
         <div className="mt-7 text-center">
           <span className="text-gray-400">Belum Punya Akun? </span>
           <a href="/m/register" class="text-blue-500 font-semibold">

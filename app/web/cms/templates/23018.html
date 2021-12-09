@@ -11,20 +11,35 @@
           height="180"
         />
         <p className="mb-2 font-bold text-3xl text-gray-800">
-          Pendaftaran Akun Berhasil
+          Masukkan Kode Verifikasi
         </p>
         <p className="mb-5 text-md text-gray-600 text-center">
-          Berhasil membuat akun Recruitment dengan e-mail <br></br>
-          <a>nuranggita0304@gmail.com</a>
+          Kode verifikasi telah dikirim melalui e-mail <br></br> ke
+          n*************@g****.com
         </p>
 
+        <div className="form-control mb-4">
+          <div className="flex space-x-2">
+            <input
+              type="text"
+              className="w-80 input input-bordered"
+              autoComplete="off"
+              placeholder="Kode Verifikasi"
+              name="nama-lengkap"
+            />
+          </div>
+        </div>
+
+        <p className="mb-5 text-md text-gray-600 text-center">
+          mohon menunggu 60 detik untuk mengirim ulang
+        </p>
         <button
           className="bg-blue-500 hover:bg-blue-700 text-white font-bold p-3 rounded w-80"
           onClick={() => {
-            window.location.replace("/m/login");
+            window.location.replace("/m/forget-password/reset-password");
           }}
         >
-          <span>Masuk ke Recruitment</span>
+          <span>Verifikasi</span>
         </button>
       </div>
     </div>
