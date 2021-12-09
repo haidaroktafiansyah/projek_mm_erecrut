@@ -1,0 +1,32 @@
+<>
+  <effect run={() => {}} />
+  <div className="flex h-screen overflow-hidden bg-white ">
+    <div className="w-screen h-screen flex justify-center items-center bg-white">
+      <div className="p-10 flex justify-center items-center flex-col">
+        <img
+          className="mb-5"
+          src="/fimgs/image-register.x3.svg"
+          alt="BPS NJ"
+          width="200"
+          height="180"
+        />
+        <p className="mb-2 font-bold text-3xl text-gray-800">
+          Pendaftaran Akun Berhasil
+        </p>
+        <p className="mb-5 text-md text-gray-600 text-center">
+          Berhasil membuat akun Recruitment dengan e-mail <br></br>
+          <a>nuranggita0304@gmail.com</a>
+        </p>
+
+        <button
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold p-3 rounded w-80"
+          onClick={() => {
+            window.location.replace("/m/data/identitas");
+          }}
+        >
+          <span>Masuk ke Recruitment</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</>
