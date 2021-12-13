@@ -1,0 +1,34 @@
+<>
+  <effect
+    meta={{
+      // Show password
+      togglePasswordVisiblity() {
+        var passwordShown = false;
+        return passwordShown ? false : true;
+      },
+      getCurrentYear() {
+        return new Date().getFullYear();
+      },
+    }}
+    run={() => {}}
+  />
+  <div className="flex overflow-hidden bg-white">
+    <div className="w-screen h-screen justify-center flex bg-white">
+      <div className="flex flex-col justify-center">
+        <div className="flex content-center justify-center">
+          <img
+            className="mb-5"
+            src="/fimgs/image-login.x3.svg"
+            alt="BPS NJ"
+            width="200"
+            height="180"
+          />
+        </div>
+
+        <p className="mb-2 font-bold text-3xl text-gray-400 text-center">
+          Riwayat tidak ditemukan
+        </p>
+      </div>
+    </div>
+  </div>
+</>
