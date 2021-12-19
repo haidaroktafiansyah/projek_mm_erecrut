@@ -10,7 +10,7 @@
         <h2 class="card-title">Identitas Pribadi</h2>
         <div class="grid grid-cols-1 gap-1 mb-1">
           <label class="label">
-            <span class="label-text">Nama Lengkap</span>
+            <span class="label-text">Nama Lengkap *</span>
           </label>
           <div class="flex self-stretch flex-col space-y-4 items-start justify-start">
             <div class="flex self-stretch items-start justify-start">
@@ -19,6 +19,7 @@
                 class={
                   "flex items-center justify-start py-2 px-4 bg-gray-100 border rounded border-gray-100 w-full"
                 }
+                required
               />
             </div>
           </div>
@@ -26,7 +27,7 @@
 
         <div class="grid grid-cols-1 gap-1 mb-1">
           <label class="label">
-            <span class="label-text">NIK</span>
+            <span class="label-text">NIK *</span>
           </label>
           <div class="flex self-stretch flex-col space-y-4 items-start justify-start">
             <div class="flex self-stretch items-start justify-start">
@@ -35,6 +36,7 @@
                 class={
                   "flex items-center justify-start py-2 px-4 bg-gray-100 border rounded border-gray-100 w-full"
                 }
+                required
               />
             </div>
           </div>
@@ -42,7 +44,7 @@
 
         <div class="grid grid-cols-1 gap-1 mb-1">
           <label class="label">
-            <span class="label-text">Tempat Kelahiran</span>
+            <span class="label-text">Tempat Kelahiran *</span>
           </label>
           <div class="flex self-stretch flex-col space-y-4 items-start justify-start">
             <div class="flex self-stretch items-start justify-start">
@@ -51,6 +53,7 @@
                 class={
                   "flex items-center justify-start py-2 px-4 bg-gray-100 border rounded border-gray-100 w-full"
                 }
+                required
               />
             </div>
           </div>
@@ -58,12 +61,13 @@
 
         <div class="grid grid-cols-4 gap-1 mb-1">
           <label class="label">
-            <span class="label-text mr-3">Tanggal Lahir</span>
+            <span class="label-text mr-3">Tanggal Lahir *</span>
           </label>
           <div class="form-control col-span-3">
             <input
               type="date"
               class="input input-bordered"
+              required
               // value={meta.tglMulai}
               // onChange={(e) => meta.action.tglMulaiChange(e)}
             />
@@ -72,13 +76,14 @@
 
         <div class="grid grid-cols-4 gap-1 mb-1">
           <label class="label">
-            <span class="label-text">Jenis Kelamin</span>
+            <span class="label-text">Jenis Kelamin*</span>
           </label>
           <br></br>
           <select
             class="select select-bordered w-full col-span-3"
             // value={meta.stsPekerja}
             // onChange={(e) => meta.action.stsPekerjaChange(e)}
+            required
           >
             <option>Pilih Jenis Kelamin</option>
             {/*{meta.listStsPekerja?.data?.map((listStsPekerja, idx) => (*/}
@@ -108,7 +113,7 @@
         <h2 class="card-title">Alamat</h2>
         <div class="grid grid-cols-1 gap-1 mb-1">
           <label class="label">
-            <span class="label-text">Alamat saat ini</span>
+            <span class="label-text">Alamat saat ini *</span>
           </label>
           <div class="flex self-stretch flex-col space-y-4 items-start justify-start">
             <div class="flex self-stretch items-start justify-start">
@@ -117,6 +122,7 @@
                 class={
                   "flex items-center justify-start py-2 px-4 bg-gray-100 border rounded border-gray-100 w-full"
                 }
+                required
               />
             </div>
           </div>
@@ -124,13 +130,14 @@
 
         <div class="grid grid-cols-4 gap-1 mb-1">
           <label class="label">
-            <span class="label-text">Provinsi</span>
+            <span class="label-text">Provinsi *</span>
           </label>
           <br></br>
           <select
             class="select select-bordered w-full col-span-3"
             // value={meta.stsPekerja}
             // onChange={(e) => meta.action.stsPekerjaChange(e)}
+            required
           >
             <option>Pilih Provinsi</option>
             {/*{meta.listStsPekerja?.data?.map((listStsPekerja, idx) => (*/}
@@ -143,13 +150,14 @@
 
         <div class="grid grid-cols-4 gap-1 mb-4">
           <label class="label">
-            <span class="label-text">Kota</span>
+            <span class="label-text">Kota *</span>
           </label>
           <br></br>
           <select
             class="select select-bordered w-full col-span-3"
             // value={meta.stsPekerja}
             // onChange={(e) => meta.action.stsPekerjaChange(e)}
+            required
           >
             <option>Pilih Kota</option>
             {/*{meta.listStsPekerja?.data?.map((listStsPekerja, idx) => (*/}
@@ -163,38 +171,43 @@
         <h2 class="card-title">Foto Identitas</h2>
         <div class="grid grid-cols-1 gap-1 mb-1">
           <label class="label">
-            <span class="label-text">Pas Foto 4x6</span>
+            <span class="label-text">Pas Foto 4x6 *</span>
           </label>
-          <div class="flex self-stretch flex-col space-y-4 items-start justify-start">
-            <div class="flex self-stretch items-start justify-start">
-              <input
-                placeholder="Pilih dokumen"
-                class={
-                  "flex items-center justify-start py-2 px-4 bg-gray-100 border rounded border-gray-100 w-full"
-                }
-              />
+          <div class="grid grid-cols-1 gap-1 mb-1">
+            <div class="flex self-stretch flex-col space-y-4 items-start justify-start">
+              <div class="flex self-stretch items-start justify-start">
+                <input
+                  placeholder=""
+                  type="file"
+                  class={
+                    "flex items-center justify-start py-2 px-4 bg-gray-100 border rounded border-gray-100 w-full"
+                  }
+                  required
+                />
+              </div>
             </div>
           </div>
         </div>
 
         <div class="grid grid-cols-1 gap-1 mb-4">
           <label class="label">
-            <span class="label-text">Foto KTP</span>
+            <span class="label-text">Foto KTP *</span>
           </label>
-          <div class="flex self-stretch flex-col space-y-4 items-start justify-start">
-            <div class="flex self-stretch items-start justify-start">
-              <input
-                placeholder="Pilih dokumen"
-                class={
-                  "flex items-center justify-start py-2 px-4 bg-gray-100 border rounded border-gray-100 w-full"
-                }
-              />
+          <div class="grid grid-cols-1 gap-1 mb-1">
+            <div class="flex self-stretch flex-col space-y-4 items-start justify-start">
+              <div class="flex self-stretch items-start justify-start">
+                <input
+                  placeholder=""
+                  type="file"
+                  class={
+                    "flex items-center justify-start py-2 px-4 bg-gray-100 border rounded border-gray-100 w-full"
+                  }
+                  required
+                />
+              </div>
             </div>
           </div>
         </div>
-
-        <h1>1 dari 3</h1>
-        <br></br>
 
         <div>
           <button class="btn btn-primary" type="submit">
