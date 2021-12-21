@@ -1,7 +1,15 @@
-<div>
+<>
+  <effect
+    meta={{
+      value: {},
+    }}
+    run={async () => {
+      meta.value = await api("/api/register/admin");
+    }}
+  />
+
   <div class="card bg-white shadow">
     <div class="card-body">
-      {/*<h2 class="card-title">Data Departemen</h2>*/}
       <div class="flex mb-4">
         <a
           href="/add-operator"
@@ -46,24 +54,26 @@
           </div>
         </div>
       </div>
+
       <div class="overflow-x-auto mb-4">
         <table class="table w-full table-zebra">
           <thead>
             <tr>
               <th width="50">NO</th>
-              <th>NAMA</th>
               <th>USERNAME</th>
               <th width="162">Aksi</th>
             </tr>
           </thead>
           <tbody>
+            {/*{meta.value?.data?.map((adminOperator, idx) => (*/}
             <tr>
+              {/*<th>{idx + 1}</th>*/}
               <th>1</th>
-              <td>FS Developer</td>
-              <td>fsd12345</td>
+              {/*<td>{adminOperator.username}</td>*/}
+              <td>admin_satu</td>
               <td>
                 <a
-                  href=""
+                  // href={`/edit-operator/` + adminOperator.id}
                   class="btn btn-xs bg-blue-500 border-none hover:bg-blue-700 mr-4"
                 >
                   <img width={17} height={16} src="/fimgs/ic-edit.x1.svg" />{" "}
@@ -78,9 +88,11 @@
                 </button>
               </td>
             </tr>
+            {/*))}*/}
           </tbody>
         </table>
       </div>
+
       <div class="flex justify-start-end items-center">
         <div class="flex-1">Showing 1 to 1 of entries</div>
         <div class="btn-group">
@@ -104,4 +116,4 @@
       </div>
     </div>
   </div>
-</div>
+</>
