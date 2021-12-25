@@ -1,0 +1,16 @@
+{
+  "content": {
+    "type": "API",
+    "structure": "",
+    "server_on_load": "async ({\n  template,\n  params,\n  render,\n  db,\n  req,\n  reply,\n  user,\n  log,\n  ext,\n  isDev,\n}: Server) => {\n  const deletedata = async (iddata) => {\n    const data = await db.alamat_Departemen.delete({\n      where: {\n        id: Number(iddata),\n      },\n    });\n    reply.send({\n      data: data,\n      status: \"success deleted\",\n    });\n  };\n  deletedata(params.id)\n}",
+    "figma": {}
+  },
+  "title": "alamat-departemen-delete",
+  "type": "cms-template",
+  "lang": "",
+  "status": "SYSTEM",
+  "parent_id": "45908",
+  "slug": "api/alamatdepartemendelete/d/:id",
+  "site": "*",
+  "id": "41849"
+}

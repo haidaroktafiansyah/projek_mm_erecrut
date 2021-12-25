@@ -197,6 +197,7 @@ model Proses_Apply {
   admin            admin?          @relation(fields: [adminId], references: [id])
   adminId          Int?
 
+
   interview Interview[]
 }
 
