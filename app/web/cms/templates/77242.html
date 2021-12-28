@@ -1,54 +1,55 @@
 <>
-  {/*<effect*/}
-  {/*meta={{*/}
-  {/*value: {},*/}
-  {/*posisi: "",*/}
-  {/*jobDesc: "",*/}
-  {/*persyaratan: "",*/}
-  {/*id_posisi: null,*/}
-  {/*}}*/}
-  {/*run={async () => {*/}
-  {/*// get params id alamat*/}
-  {/*meta.id_posisi = parseInt(params.id);*/}
-  {/*// get posisi lowongan by id*/}
-  {/*meta.value = await api(`/api/kebutuhanloker/d/` + meta.id_posisi).then(*/}
-  {/*(res) => {*/}
-  {/*meta.posisi = res.data.posisi;*/}
-  {/*meta.jobDesc = res.data.jobdesc;*/}
-  {/*meta.persyaratan = res.data.persyaratan;*/}
-  {/*}*/}
-  {/*);*/}
-  {/*meta.action = {*/}
-  {/*posisiChange: (e) => {*/}
-  {/*runInAction(() => {*/}
-  {/*meta.posisi = e.target.value;*/}
-  {/*});*/}
-  {/*},*/}
-  {/*jobDescChange: (e) => {*/}
-  {/*runInAction(() => {*/}
-  {/*meta.jobDesc = e.target.value;*/}
-  {/*});*/}
-  {/*},*/}
-  {/*persyaratanChange: (e) => {*/}
-  {/*runInAction(() => {*/}
-  {/*meta.persyaratan = e.target.value;*/}
-  {/*});*/}
-  {/*},*/}
-  {/*// Method Tambah*/}
-  {/*addPosisi: (e) => {*/}
-  {/*api(`/api/kebutuhanloker/d/` + meta.id_posisi, {*/}
-  {/*posisi: meta.posisi,*/}
-  {/*jobdesc: meta.jobDesc,*/}
-  {/*persyaratan: meta.persyaratan,*/}
-  {/*}).then((e) => {*/}
-  {/*console.log(e);*/}
-  {/*alert("Edit Posisi Berhasil!");*/}
-  {/*window.location.replace("/posisi-lowongan");*/}
-  {/*});*/}
-  {/*},*/}
-  {/*};*/}
-  {/*}}*/}
-  {/*/>*/}
+  <effect
+    meta={{
+      value: {},
+      posisi: "",
+      jobDesc: "",
+      persyaratan: "",
+      id_posisi: null,
+    }}
+    run={async () => {
+      // get params id alamat
+      meta.id_posisi = parseInt(params.id);
+      // get posisi lowongan by id
+      meta.value = await api(`/api/kebutuhanloker/d/` + meta.id_posisi).then(
+        (res) => {
+          meta.posisi = res.data.posisi;
+          meta.jobDesc = res.data.jobdesc;
+          meta.persyaratan = res.data.persyaratan;
+        }
+      );
+      meta.action = {
+        posisiChange: (e) => {
+          runInAction(() => {
+            meta.posisi = e.target.value;
+          });
+        },
+        jobDescChange: (e) => {
+          runInAction(() => {
+            meta.jobDesc = e.target.value;
+          });
+        },
+        persyaratanChange: (e) => {
+          runInAction(() => {
+            meta.persyaratan = e.target.value;
+          });
+        },
+        // Method Tambah
+        addPosisi: (e) => {
+          api(`/api/kebutuhanloker/d/` + meta.id_posisi, {
+            posisi: meta.posisi,
+            jobdesc: meta.jobDesc,
+            persyaratan: meta.persyaratan,
+          }).then((e) => {
+            console.log(e);
+            alert("Edit Posisi Berhasil!");
+            window.location.replace("/posisi-lowongan");
+          });
+        },
+      };
+    }}
+  />
+
   <div class="card bg-white shadow">
     <div class="card-body">
       <form
@@ -68,6 +69,7 @@
               onChange={(e) => meta.action.posisiChange(e)}
               placeholder="ex. Application Support"
               class="input input-bordered"
+              disabled
             />
           </div>
         </div>
@@ -83,6 +85,7 @@
               onChange={(e) => meta.action.persyaratanChange(e)}
               placeholder="ex. Semua jurusan, lebih disukai dari Teknik Informatika atau Sistem Informasi"
               class="input input-bordered"
+              disabled
             />
           </div>
         </div>
@@ -97,6 +100,7 @@
               value={meta.jobDesc}
               onChange={(e) => meta.action.jobDescChange(e)}
               placeholder="ex. Peranan Application Support sangat signifikan dalam mendukung kelancaran pengembangan program aplikasi. Bagaimana Anda dapat mentransformasikan kebutuhan klien dengan berbagai proses bisnisnya menjadi flowchart yang akan menuntun programmer dalam membuat program tersebut akan menjadi  tantangan yang sangat menarik bagi Anda. Memiliki daya analisa yang kuat dan komunikasi yang baik sangat penting untuk posisi ini."
+              disabled
             ></textarea>
           </div>
         </div>
