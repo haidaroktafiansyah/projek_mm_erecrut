@@ -1,188 +1,206 @@
-<div>
-  <div class="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-4">
-    {/*---------------Lowongan Aktif---------------*/}
-    <div class="flex items-center p-5 bg-white rounded-xl shadow-md dark:bg-gray-800">
-      <div class="p-4 mr-4 bg-green-100 rounded-md">
-        <svg
-          width={40}
-          height={40}
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M21.13 33.262c.458.106.5.706.054.855l-2.634.866c-6.616 2.134-10.1.35-12.25-6.266l-2.133-6.584c-2.133-6.616-.367-10.116 6.25-12.25l1.55-.513c.403-.134.788.268.66.672a26.47 26.47 0 00-.477 1.741l-1.633 6.984c-1.833 7.85.85 12.183 8.7 14.05l1.913.445z"
-            fill="#23AF72"
-          />
-          <path
-            d="M28.617 5.35l-2.784-.65C20.268 3.383 16.95 4.467 15 8.5c-.5 1.017-.9 2.25-1.233 3.667l-1.633 6.983c-1.634 6.967.516 10.4 7.466 12.05l2.8.667c.967.233 1.867.383 2.7.45 5.2.5 7.967-1.934 9.367-7.95L36.1 17.4c1.633-6.967-.5-10.417-7.483-12.05zm-3.134 16.867c-.15.566-.65.933-1.216.933-.1 0-.2-.017-.317-.033l-4.85-1.234a1.25 1.25 0 01-.9-1.516 1.249 1.249 0 011.517-.9l4.85 1.233c.683.167 1.083.85.916 1.517zm4.884-5.634c-.15.567-.65.934-1.217.934-.1 0-.2-.017-.317-.034l-8.083-2.05a1.25 1.25 0 01-.9-1.516 1.249 1.249 0 011.517-.9l8.083 2.05c.684.15 1.083.833.917 1.516z"
-            fill="#23AF72"
-          />
-        </svg>
+<>
+  <effect
+    meta={{
+      value: {},
+    }}
+    run={async () => {
+      meta.value = await api("/api/departemen");
+    }}
+  />
+  <div>
+    <div class="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-4">
+      {/*---------------Lowongan Aktif---------------*/}
+      <div class="flex items-center p-5 bg-white rounded-xl shadow-md dark:bg-gray-800">
+        <div class="p-4 mr-4 bg-green-100 rounded-md">
+          <svg
+            width={40}
+            height={40}
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M21.13 33.262c.458.106.5.706.054.855l-2.634.866c-6.616 2.134-10.1.35-12.25-6.266l-2.133-6.584c-2.133-6.616-.367-10.116 6.25-12.25l1.55-.513c.403-.134.788.268.66.672a26.47 26.47 0 00-.477 1.741l-1.633 6.984c-1.833 7.85.85 12.183 8.7 14.05l1.913.445z"
+              fill="#23AF72"
+            />
+            <path
+              d="M28.617 5.35l-2.784-.65C20.268 3.383 16.95 4.467 15 8.5c-.5 1.017-.9 2.25-1.233 3.667l-1.633 6.983c-1.634 6.967.516 10.4 7.466 12.05l2.8.667c.967.233 1.867.383 2.7.45 5.2.5 7.967-1.934 9.367-7.95L36.1 17.4c1.633-6.967-.5-10.417-7.483-12.05zm-3.134 16.867c-.15.566-.65.933-1.216.933-.1 0-.2-.017-.317-.033l-4.85-1.234a1.25 1.25 0 01-.9-1.516 1.249 1.249 0 011.517-.9l4.85 1.233c.683.167 1.083.85.916 1.517zm4.884-5.634c-.15.567-.65.934-1.217.934-.1 0-.2-.017-.317-.034l-8.083-2.05a1.25 1.25 0 01-.9-1.516 1.249 1.249 0 011.517-.9l8.083 2.05c.684.15 1.083.833.917 1.516z"
+              fill="#23AF72"
+            />
+          </svg>
+        </div>
+        <div>
+          <p class="mb-2 text-lg font-reguler text-blueGray-400">
+            Lowongan Aktif
+          </p>
+          <p class="text-4xl font-semibold text-gray-700">3</p>
+        </div>
       </div>
-      <div>
-        <p class="mb-2 text-lg font-reguler text-blueGray-400">
-          Lowongan Aktif
-        </p>
-        <p class="text-4xl font-semibold text-gray-700">3</p>
+      {/*---------------Total Pelamar---------------*/}
+      <div class="flex items-center p-5 bg-white rounded-xl shadow-md dark:bg-gray-800">
+        <div class="p-4 mr-4 bg-blue-100 rounded-md">
+          <svg
+            width={41}
+            height={40}
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M29.883 12.95a1.229 1.229 0 00-.35 0 4.79 4.79 0 01-4.633-4.8c0-2.65 2.15-4.817 4.817-4.817 2.65 0 4.816 2.15 4.816 4.817-.016 2.6-2.066 4.717-4.65 4.8zM35.316 24.5c-1.866 1.25-4.483 1.717-6.9 1.4.634-1.367.967-2.883.984-4.483 0-1.667-.367-3.25-1.067-4.634 2.467-.333 5.083.134 6.967 1.384 2.633 1.733 2.633 4.583.016 6.333zM11.4 12.95c.117-.017.233-.017.35 0a4.79 4.79 0 004.633-4.8 4.808 4.808 0 00-4.816-4.817c-2.65 0-4.8 2.15-4.8 4.817a4.79 4.79 0 004.633 4.8zM11.583 21.417c0 1.616.35 3.15.984 4.533-2.35.25-4.8-.25-6.6-1.433-2.634-1.75-2.634-4.6 0-6.35 1.783-1.2 4.3-1.684 6.666-1.417-.683 1.4-1.05 2.983-1.05 4.667zM20.866 26.45a1.878 1.878 0 00-.433 0 5.708 5.708 0 01-5.517-5.717A5.747 5.747 0 0120.666 15a5.733 5.733 0 015.734 5.733c-.017 3.1-2.45 5.617-5.534 5.717zM15.45 29.9c-2.517 1.683-2.517 4.45 0 6.117 2.867 1.916 7.567 1.916 10.433 0 2.517-1.684 2.517-4.45 0-6.117-2.85-1.917-7.55-1.917-10.433 0z"
+              fill="#017EFA"
+            />
+          </svg>
+        </div>
+        <div>
+          <p class="mb-2 text-lg font-reguler text-blueGray-400">
+            Total Pelamar
+          </p>
+          <p class="text-4xl font-semibold text-gray-700">784</p>
+        </div>
+      </div>
+      {/*---------------Pelamar Aktif---------------*/}
+      <div class="flex items-center p-5 bg-white rounded-xl shadow-md dark:bg-gray-800">
+        <div class="p-4 mr-4 bg-pink-100 rounded-md">
+          <svg
+            width={41}
+            height={40}
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M29.55 12.95a1.229 1.229 0 00-.35 0 4.79 4.79 0 01-4.633-4.8c0-2.65 2.15-4.817 4.816-4.817 2.65 0 4.817 2.15 4.817 4.817-.017 2.6-2.067 4.717-4.65 4.8zM34.983 24.5c-1.867 1.25-4.483 1.717-6.9 1.4.633-1.367.967-2.883.983-4.483 0-1.667-.366-3.25-1.066-4.634 2.466-.333 5.083.134 6.966 1.384C37.6 19.9 37.6 22.75 34.983 24.5zM11.067 12.95c.116-.017.233-.017.35 0a4.79 4.79 0 004.633-4.8 4.808 4.808 0 00-4.817-4.817c-2.65 0-4.8 2.15-4.8 4.817a4.79 4.79 0 004.634 4.8zM11.25 21.417c0 1.616.35 3.15.983 4.533-2.35.25-4.8-.25-6.6-1.433-2.633-1.75-2.633-4.6 0-6.35 1.784-1.2 4.3-1.684 6.667-1.417-.683 1.4-1.05 2.983-1.05 4.667zM20.533 26.45a1.878 1.878 0 00-.433 0 5.708 5.708 0 01-5.517-5.717A5.747 5.747 0 0120.333 15a5.733 5.733 0 015.734 5.733c-.017 3.1-2.45 5.617-5.534 5.717zM15.117 29.9c-2.517 1.683-2.517 4.45 0 6.117 2.866 1.916 7.566 1.916 10.433 0 2.517-1.684 2.517-4.45 0-6.117-2.85-1.917-7.55-1.917-10.434 0z"
+              fill="#FD1F9B"
+            />
+          </svg>
+        </div>
+        <div>
+          <p class="mb-2 text-lg font-reguler text-blueGray-400">
+            Pelamar Aktif
+          </p>
+          <p class="text-4xl font-semibold text-gray-700">112</p>
+        </div>
+      </div>
+      {/*---------------Departemen---------------*/}
+      <div class="flex items-center p-5 bg-white rounded-xl shadow-md dark:bg-gray-800">
+        <div class="p-4 mr-4 bg-orange-100 rounded-md">
+          <svg
+            width={40}
+            height={40}
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M8.333 13.333c-2.766 0-5 2.234-5 5v13.334c0 2.766 2.234 5 5 5h2.5c1.834 0 3.334-1.5 3.334-3.334V16.667c0-1.834-1.5-3.334-3.334-3.334h-2.5zm1.667 15a1.26 1.26 0 01-1.25 1.25 1.26 1.26 0 01-1.25-1.25v-6.666c0-.684.567-1.25 1.25-1.25s1.25.566 1.25 1.25v6.666zM31.667 3.333h-10c-2.767 0-5 2.234-5 5v23.334c0 2.766 2.233 5 5 5h.833a.825.825 0 00.833-.834V30c0-.917.75-1.667 1.667-1.667h3.333c.917 0 1.667.75 1.667 1.667v5.833c0 .467.367.834.833.834h.834c2.766 0 5-2.234 5-5V8.333c0-2.766-2.234-5-5-5zm-7.084 18.334a1.26 1.26 0 01-1.25 1.25 1.26 1.26 0 01-1.25-1.25v-8.334c0-.683.567-1.25 1.25-1.25.684 0 1.25.567 1.25 1.25v8.334zm6.667 0a1.26 1.26 0 01-1.25 1.25 1.26 1.26 0 01-1.25-1.25v-8.334c0-.683.567-1.25 1.25-1.25s1.25.567 1.25 1.25v8.334z"
+              fill="#F97316"
+            />
+          </svg>
+        </div>
+
+        <div>
+          <p class="mb-2 text-lg font-reguler text-blueGray-400">Departemen</p>
+          {/*{meta.value?.data?.map((departemenData, idx) => (*/}
+          {/*<p class="text-4xl font-semibold text-gray-700">{idx + 1}</p>*/}
+          {/*))}*/}
+          <p class="text-4xl font-semibold text-gray-700">7</p>
+        </div>
       </div>
     </div>
-    {/*---------------Total Pelamar---------------*/}
-    <div class="flex items-center p-5 bg-white rounded-xl shadow-md dark:bg-gray-800">
-      <div class="p-4 mr-4 bg-blue-100 rounded-md">
-        <svg
-          width={41}
-          height={40}
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M29.883 12.95a1.229 1.229 0 00-.35 0 4.79 4.79 0 01-4.633-4.8c0-2.65 2.15-4.817 4.817-4.817 2.65 0 4.816 2.15 4.816 4.817-.016 2.6-2.066 4.717-4.65 4.8zM35.316 24.5c-1.866 1.25-4.483 1.717-6.9 1.4.634-1.367.967-2.883.984-4.483 0-1.667-.367-3.25-1.067-4.634 2.467-.333 5.083.134 6.967 1.384 2.633 1.733 2.633 4.583.016 6.333zM11.4 12.95c.117-.017.233-.017.35 0a4.79 4.79 0 004.633-4.8 4.808 4.808 0 00-4.816-4.817c-2.65 0-4.8 2.15-4.8 4.817a4.79 4.79 0 004.633 4.8zM11.583 21.417c0 1.616.35 3.15.984 4.533-2.35.25-4.8-.25-6.6-1.433-2.634-1.75-2.634-4.6 0-6.35 1.783-1.2 4.3-1.684 6.666-1.417-.683 1.4-1.05 2.983-1.05 4.667zM20.866 26.45a1.878 1.878 0 00-.433 0 5.708 5.708 0 01-5.517-5.717A5.747 5.747 0 0120.666 15a5.733 5.733 0 015.734 5.733c-.017 3.1-2.45 5.617-5.534 5.717zM15.45 29.9c-2.517 1.683-2.517 4.45 0 6.117 2.867 1.916 7.567 1.916 10.433 0 2.517-1.684 2.517-4.45 0-6.117-2.85-1.917-7.55-1.917-10.433 0z"
-            fill="#017EFA"
-          />
-        </svg>
-      </div>
-      <div>
-        <p class="mb-2 text-lg font-reguler text-blueGray-400">Total Pelamar</p>
-        <p class="text-4xl font-semibold text-gray-700">784</p>
-      </div>
-    </div>
-    {/*---------------Pelamar Aktif---------------*/}
-    <div class="flex items-center p-5 bg-white rounded-xl shadow-md dark:bg-gray-800">
-      <div class="p-4 mr-4 bg-pink-100 rounded-md">
-        <svg
-          width={41}
-          height={40}
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M29.55 12.95a1.229 1.229 0 00-.35 0 4.79 4.79 0 01-4.633-4.8c0-2.65 2.15-4.817 4.816-4.817 2.65 0 4.817 2.15 4.817 4.817-.017 2.6-2.067 4.717-4.65 4.8zM34.983 24.5c-1.867 1.25-4.483 1.717-6.9 1.4.633-1.367.967-2.883.983-4.483 0-1.667-.366-3.25-1.066-4.634 2.466-.333 5.083.134 6.966 1.384C37.6 19.9 37.6 22.75 34.983 24.5zM11.067 12.95c.116-.017.233-.017.35 0a4.79 4.79 0 004.633-4.8 4.808 4.808 0 00-4.817-4.817c-2.65 0-4.8 2.15-4.8 4.817a4.79 4.79 0 004.634 4.8zM11.25 21.417c0 1.616.35 3.15.983 4.533-2.35.25-4.8-.25-6.6-1.433-2.633-1.75-2.633-4.6 0-6.35 1.784-1.2 4.3-1.684 6.667-1.417-.683 1.4-1.05 2.983-1.05 4.667zM20.533 26.45a1.878 1.878 0 00-.433 0 5.708 5.708 0 01-5.517-5.717A5.747 5.747 0 0120.333 15a5.733 5.733 0 015.734 5.733c-.017 3.1-2.45 5.617-5.534 5.717zM15.117 29.9c-2.517 1.683-2.517 4.45 0 6.117 2.866 1.916 7.566 1.916 10.433 0 2.517-1.684 2.517-4.45 0-6.117-2.85-1.917-7.55-1.917-10.434 0z"
-            fill="#FD1F9B"
-          />
-        </svg>
-      </div>
-      <div>
-        <p class="mb-2 text-lg font-reguler text-blueGray-400">Pelamar Aktif</p>
-        <p class="text-4xl font-semibold text-gray-700">112</p>
-      </div>
-    </div>
-    {/*---------------Departemen---------------*/}
-    <div class="flex items-center p-5 bg-white rounded-xl shadow-md dark:bg-gray-800">
-      <div class="p-4 mr-4 bg-orange-100 rounded-md">
-        <svg
-          width={40}
-          height={40}
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M8.333 13.333c-2.766 0-5 2.234-5 5v13.334c0 2.766 2.234 5 5 5h2.5c1.834 0 3.334-1.5 3.334-3.334V16.667c0-1.834-1.5-3.334-3.334-3.334h-2.5zm1.667 15a1.26 1.26 0 01-1.25 1.25 1.26 1.26 0 01-1.25-1.25v-6.666c0-.684.567-1.25 1.25-1.25s1.25.566 1.25 1.25v6.666zM31.667 3.333h-10c-2.767 0-5 2.234-5 5v23.334c0 2.766 2.233 5 5 5h.833a.825.825 0 00.833-.834V30c0-.917.75-1.667 1.667-1.667h3.333c.917 0 1.667.75 1.667 1.667v5.833c0 .467.367.834.833.834h.834c2.766 0 5-2.234 5-5V8.333c0-2.766-2.234-5-5-5zm-7.084 18.334a1.26 1.26 0 01-1.25 1.25 1.26 1.26 0 01-1.25-1.25v-8.334c0-.683.567-1.25 1.25-1.25.684 0 1.25.567 1.25 1.25v8.334zm6.667 0a1.26 1.26 0 01-1.25 1.25 1.26 1.26 0 01-1.25-1.25v-8.334c0-.683.567-1.25 1.25-1.25s1.25.567 1.25 1.25v8.334z"
-            fill="#F97316"
-          />
-        </svg>
-      </div>
-      <div>
-        <p class="mb-2 text-lg font-reguler text-blueGray-400">Departemen</p>
-        <p class="text-4xl font-semibold text-gray-700">8</p>
+    <div class="card bg-white shadow">
+      <div class="card-body">
+        <h2 class="card-title">Daftar Pelamar Terkini</h2>
+        <hr class="mb-4" />
+        <div class="overflow-x-auto">
+          <table class="table w-full">
+            <thead>
+              <tr>
+                <th>NO</th>
+                <th>NAMA PELAMAR</th>
+                <th>Posisi</th>
+                <th>Email</th>
+                <th>Tanggal Melamar</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>1</th>
+                <td>Indri Suci Indartik</td>
+                <td>Back-End Developer</td>
+                <td>indrisuci@gmail.com</td>
+                <td>24 November 2021</td>
+              </tr>
+              <tr>
+                <th>2</th>
+                <td>Clara Usada</td>
+                <td>Front-End Developer</td>
+                <td>clara.usada@gmail.com</td>
+                <td>24 November 2021</td>
+              </tr>
+              <tr>
+                <th>3</th>
+                <td>Opan Rajata</td>
+                <td>Back-End Developer</td>
+                <td>opanrajata@gmail.com</td>
+                <td>24 November 2021</td>
+              </tr>
+              <tr>
+                <th>4</th>
+                <td>Gabriella Yolanda</td>
+                <td>UI/UX Designer</td>
+                <td>gabriella.yolanda@gmail.com</td>
+                <td>24 November 2021</td>
+              </tr>
+              <tr>
+                <th>5</th>
+                <td>Usman Gunarto</td>
+                <td>Business Analyst</td>
+                <td>usman.gunarto@gmail.com</td>
+                <td>24 November 2021</td>
+              </tr>
+              <tr>
+                <th>6</th>
+                <td>Salsabila Agustina</td>
+                <td>Front-End Developer</td>
+                <td>salsabilaagustina@gmail.com</td>
+                <td>23 November 2021</td>
+              </tr>
+              <tr>
+                <th>7</th>
+                <td>Indah Astuti</td>
+                <td>Mobile Developer</td>
+                <td>indahastuti@gmail.com</td>
+                <td>23 November 2021</td>
+              </tr>
+              <tr>
+                <th>8</th>
+                <td>Ajiono Pradana</td>
+                <td>Data Engineer</td>
+                <td>ajionopradana@gmail.com</td>
+                <td>23 November 2021</td>
+              </tr>
+              <tr>
+                <th>9</th>
+                <td>Iriana Maryati</td>
+                <td>Full-Stack Developer</td>
+                <td>irianamaryati@gmail.com</td>
+                <td>23 November 2021</td>
+              </tr>
+              <tr>
+                <th>10</th>
+                <td>Uchita Nasyiah</td>
+                <td>Front-End Developer</td>
+                <td>uchitanasyiah@gmail.com</td>
+                <td>22 November 2021</td>
+              </tr>
+              <tr>
+                <th>11</th>
+                <td>Gabriella Riyanti</td>
+                <td>Backend Developer</td>
+                <td>gabriellariyanti@gmail.com</td>
+                <td>22 November 2021</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </div>
-  <div class="card bg-white shadow">
-    <div class="card-body">
-      <h2 class="card-title">Daftar Pelamar Terkini</h2>
-      <hr class="mb-4" />
-      <div class="overflow-x-auto">
-        <table class="table w-full">
-          <thead>
-            <tr>
-              <th>NO</th>
-              <th>NAMA PELAMAR</th>
-              <th>Posisi</th>
-              <th>Email</th>
-              <th>Tanggal Melamar</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th>1</th>
-              <td>Indri Suci Indartik</td>
-              <td>Back-End Developer</td>
-              <td>indrisuci@gmail.com</td>
-              <td>24 November 2021</td>
-            </tr>
-            <tr>
-              <th>2</th>
-              <td>Clara Usada</td>
-              <td>Front-End Developer</td>
-              <td>clara.usada@gmail.com</td>
-              <td>24 November 2021</td>
-            </tr>
-            <tr>
-              <th>3</th>
-              <td>Opan Rajata</td>
-              <td>Back-End Developer</td>
-              <td>opanrajata@gmail.com</td>
-              <td>24 November 2021</td>
-            </tr>
-            <tr>
-              <th>4</th>
-              <td>Gabriella Yolanda</td>
-              <td>UI/UX Designer</td>
-              <td>gabriella.yolanda@gmail.com</td>
-              <td>24 November 2021</td>
-            </tr>
-            <tr>
-              <th>5</th>
-              <td>Usman Gunarto</td>
-              <td>Business Analyst</td>
-              <td>usman.gunarto@gmail.com</td>
-              <td>24 November 2021</td>
-            </tr>
-            <tr>
-              <th>6</th>
-              <td>Salsabila Agustina</td>
-              <td>Front-End Developer</td>
-              <td>salsabilaagustina@gmail.com</td>
-              <td>23 November 2021</td>
-            </tr>
-            <tr>
-              <th>7</th>
-              <td>Indah Astuti</td>
-              <td>Mobile Developer</td>
-              <td>indahastuti@gmail.com</td>
-              <td>23 November 2021</td>
-            </tr>
-            <tr>
-              <th>8</th>
-              <td>Ajiono Pradana</td>
-              <td>Data Engineer</td>
-              <td>ajionopradana@gmail.com</td>
-              <td>23 November 2021</td>
-            </tr>
-            <tr>
-              <th>9</th>
-              <td>Iriana Maryati</td>
-              <td>Full-Stack Developer</td>
-              <td>irianamaryati@gmail.com</td>
-              <td>23 November 2021</td>
-            </tr>
-            <tr>
-              <th>10</th>
-              <td>Uchita Nasyiah</td>
-              <td>Front-End Developer</td>
-              <td>uchitanasyiah@gmail.com</td>
-              <td>22 November 2021</td>
-            </tr>
-            <tr>
-              <th>11</th>
-              <td>Gabriella Riyanti</td>
-              <td>Backend Developer</td>
-              <td>gabriellariyanti@gmail.com</td>
-              <td>22 November 2021</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-</div>
+</>
