@@ -9,205 +9,156 @@ datasource db {
 }
 
 model Alamat_Departemen {
-  id        Int      @id @default(autoincrement())
-  createdAt DateTime @default(now())
-
-  alamat String
-
+  id         Int          @id @default(autoincrement())
+  createdAt  DateTime     @default(now())
+  alamat     String
   kotaId     Int?
   provinsiId Int?
-  Kota       Kota?     @relation(fields: [kotaId], references: [id])
-  Provinsi   Provinsi? @relation(fields: [provinsiId], references: [id])
-
+  Kota       Kota?        @relation(fields: [kotaId], references: [id])
+  Provinsi   Provinsi?    @relation(fields: [provinsiId], references: [id])
   Departemen Departemen[]
 }
 
 model Kota {
-  id        Int      @id @default(autoincrement())
-  createdAt DateTime @default(now())
-
+  id        Int                 @id @default(autoincrement())
+  createdAt DateTime            @default(now())
   nama_kota String
-
-  Alamat Alamat_Departemen[]
+  Alamat    Alamat_Departemen[]
 }
 
 model Provinsi {
-  id        Int      @id @default(autoincrement())
-  createdAt DateTime @default(now())
-
+  id            Int                 @id @default(autoincrement())
+  createdAt     DateTime            @default(now())
   nama_provinsi String
-
-  Alamat Alamat_Departemen[]
+  Alamat        Alamat_Departemen[]
 }
 
 model Departemen {
-  id        Int      @id @default(autoincrement())
-  createdAt DateTime @default(now())
-
+  id              Int                @id @default(autoincrement())
+  createdAt       DateTime           @default(now())
   nama_departemen String
-
-  alamatId Int?
-  Alamat   Alamat_Departemen? @relation(fields: [alamatId], references: [id])
-
-  proses_apply Proses_Apply[]
+  alamatId        Int?
+  Alamat          Alamat_Departemen? @relation(fields: [alamatId], references: [id])
+  proses_apply    Proses_Apply[]
 }
 
-//////////////////////////////
-
 model Status_Pekerja {
-  id        Int      @id @default(autoincrement())
-  createdAt DateTime @default(now())
-
+  id             Int              @id @default(autoincrement())
+  createdAt      DateTime         @default(now())
   status_pekerja String
   lowongan_kerja Lowongan_Kerja[]
 }
 
 model Kebutuhan_loker {
-  id        Int      @id @default(autoincrement())
-  createdAt DateTime @default(now())
-
-  persyaratan String
-  posisi      String
-  jobdesc     String
-
-
+  id             Int              @id @default(autoincrement())
+  createdAt      DateTime         @default(now())
+  persyaratan    String
+  posisi         String
+  jobdesc        String
   lowongan_kerja Lowongan_Kerja[]
 }
 
 model Lowongan_Kerja {
-  id        Int      @id @default(autoincrement())
-  createdAt DateTime @default(now())
-
-  info            String
-  start_open      DateTime
-  end_open        DateTime
-  jumlah_diterima Int
-  status_lowongan String
-
-  Kebutuhan_loker   Kebutuhan_loker? @relation(fields: [kebutuhan_lokerId], references: [id])
+  id                Int              @id @default(autoincrement())
+  createdAt         DateTime         @default(now())
+  info              String
+  start_open        DateTime
+  end_open          DateTime
+  status_lowongan   String
   kebutuhan_lokerId Int?
-  Status_Pekerja    Status_Pekerja?  @relation(fields: [status_PekerjaId], references: [id])
   status_PekerjaId  Int?
-
-  proses_apply Proses_Apply[]
+  jumlah_diterima   Int
+  Kebutuhan_loker   Kebutuhan_loker? @relation(fields: [kebutuhan_lokerId], references: [id])
+  Status_Pekerja    Status_Pekerja?  @relation(fields: [status_PekerjaId], references: [id])
+  proses_apply      Proses_Apply[]
 }
 
-//////////////////////////////
-
 model Pendidikan_User {
-  id        Int      @id @default(autoincrement())
-  createdAt DateTime @default(now())
-
+  id                  Int      @id @default(autoincrement())
+  createdAt           DateTime @default(now())
   jenjang             String
   periode             String
   pendidikan_terakhir String
   jurusan             String
   GPA                 String
-
-  user User[]
+  user                User[]
 }
 
 model Sertifikasi {
   id        Int      @id @default(autoincrement())
   createdAt DateTime @default(now())
-
-  sertif  String
-  pembeda String
-
-  user User[]
+  sertif    String
+  pembeda   String
+  user      User[]
 }
 
 model experience {
   id        Int      @id @default(autoincrement())
   createdAt DateTime @default(now())
-
-  skill String
-
-  user User[]
+  skill     String
+  user      User[]
 }
 
 model User {
-  id        Int      @id @default(autoincrement())
-  createdAt DateTime @default(now())
-
-  email         String    @unique
-  pass          String?
-  nama_lengkap  String?
-  NIK           String?
-  tanggal_lahir DateTime?
-  nomor_hp      String?
-  jenis_kelamin String?
-  alamat        String?
-  foto_ktp      String?
-  foto_diri     String?
-  role          String?   @default("unverified")
-  email_verif   String?
-
-  Pendidikan_User   Pendidikan_User? @relation(fields: [pendidikan_UserId], references: [id])
+  id                Int              @id @default(autoincrement())
+  createdAt         DateTime         @default(now())
+  email             String           @unique
+  pass              String?
+  nama_lengkap      String?
+  NIK               String?
+  tanggal_lahir     DateTime?
+  nomor_hp          String?
+  jenis_kelamin     String?
+  alamat            String?
+  foto_ktp          String?
+  foto_diri         String?
   pendidikan_UserId Int?
-  Sertifikasi       Sertifikasi?     @relation(fields: [sertifikasiId], references: [id])
   sertifikasiId     Int?
-  experience        experience?      @relation(fields: [experienceId], references: [id])
   experienceId      Int?
-
-  proses_apply Proses_Apply[]
+  email_verif       String?
+  role              String?          @default("unverified")
+  experience        experience?      @relation(fields: [experienceId], references: [id])
+  Pendidikan_User   Pendidikan_User? @relation(fields: [pendidikan_UserId], references: [id])
+  Sertifikasi       Sertifikasi?     @relation(fields: [sertifikasiId], references: [id])
+  proses_apply      Proses_Apply[]
 }
-
-//////////////////////////////
 
 model admin {
-  id        Int      @id @default(autoincrement())
-  createdAt DateTime @default(now())
-
-  username String @unique
-  password String
-  email    String @unique
-
+  id           Int            @id @default(autoincrement())
+  createdAt    DateTime       @default(now())
+  username     String         @unique
+  password     String
+  email        String         @unique
   proses_apply Proses_Apply[]
 }
-
-//////////////////////////////
 
 model superadmin {
   id        Int      @id @default(autoincrement())
   createdAt DateTime @default(now())
-
-  username String @unique
-  password String
-  email    String @unique
-
+  username  String   @unique
+  password  String
+  email     String   @unique
 }
-
-//////////////////////////////
 
 model Proses_Apply {
-  id        Int      @id @default(autoincrement())
-  createdAt DateTime @default(now())
-
-
-  status String
-
-  User             User?           @relation(fields: [userId], references: [id])
+  id               Int             @id @default(autoincrement())
+  createdAt        DateTime        @default(now())
+  status           String          @default("prosess")
   userId           Int?
-  Lowongan_Kerja   Lowongan_Kerja? @relation(fields: [lowongan_KerjaId], references: [id])
   lowongan_KerjaId Int?
-  Departemen       Departemen?     @relation(fields: [departemenId], references: [id])
   departemenId     Int?
-  admin            admin?          @relation(fields: [adminId], references: [id])
   adminId          Int?
-
-
-  interview Interview[]
+  admin            admin?          @relation(fields: [adminId], references: [id])
+  Departemen       Departemen?     @relation(fields: [departemenId], references: [id])
+  Lowongan_Kerja   Lowongan_Kerja? @relation(fields: [lowongan_KerjaId], references: [id])
+  User             User?           @relation(fields: [userId], references: [id])
+  interview        Interview[]
 }
 
-//////////////////////////////
-
 model Interview {
-  id        Int      @id @default(autoincrement())
-  createdAt DateTime @default(now())
-
-  status String
-
-  Proses_Apply   Proses_Apply? @relation(fields: [proses_ApplyId], references: [id])
+  id             Int           @id @default(autoincrement())
+  createdAt      DateTime      @default(now())
+  status         String
   proses_ApplyId Int?
+  Proses_Apply   Proses_Apply? @relation(fields: [proses_ApplyId], references: [id])
 }

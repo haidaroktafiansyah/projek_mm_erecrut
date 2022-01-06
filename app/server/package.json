@@ -6,6 +6,7 @@
   "dependencies": {
     "bcrypt": "^5.0.1",
     "joi": "^17.4.2",
+    "moment": "^2.29.1",
     "nodemailer": "^6.7.0",
     "uuid": "^8.3.2",
     "uuidv4": "^6.2.12"

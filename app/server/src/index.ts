@@ -28,4 +28,6 @@ const Joi = require('joi');
 // password hasher
 const bcrypt = require('bcrypt');
 
-export const ext = { transporter, Joi, bcrypt }
+const moment = require('moment');
+
+export const ext = { transporter, Joi, bcrypt, moment }
