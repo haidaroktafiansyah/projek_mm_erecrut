@@ -78,7 +78,6 @@ model Lowongan_Kerja {
   id        Int      @id @default(autoincrement())
   createdAt DateTime @default(now())
 
-  status_loker    String
   info            String
   start_open      DateTime
   end_open        DateTime
