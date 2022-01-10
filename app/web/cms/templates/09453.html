@@ -41,8 +41,8 @@
             <tbody>
               <tr>
                 <th>1</th>
-                <td>Production Leader</td>
-                <td>10 Pelamar</td>
+                <td>Developer</td>
+                <td>3 Pelamar</td>
                 <td>
                   <div class="badge badge-accent">Proses Seleksi</div>
                 </td>
@@ -56,7 +56,85 @@
                     Detail
                   </a>
                   <a
-                    // href={`/edit-alamat/` + lowonganKerja.id}
+                    href="/edit-seleksi-pelamar/[id]"
+                    class="btn btn-xs bg-blue-500 border-none hover:bg-blue-700"
+                  >
+                    <img width={17} height={16} src="/fimgs/ic-edit.x1.svg" />{" "}
+                    Edit
+                  </a>
+                </td>
+              </tr>
+
+              <tr>
+                <th>2</th>
+                <td>Engineer</td>
+                <td>2 Pelamar</td>
+                <td>
+                  <div class="badge badge-accent">Proses Seleksi</div>
+                </td>
+                <td>
+                  <a
+                    href="/seleksi-berkas/"
+                    type="button"
+                    class="btn btn-xs bg-green-500 border-none hover:bg-green-700 mr-4"
+                  >
+                    <img width={17} height={16} src="/fimgs/ic-view.x1.svg" />{" "}
+                    Detail
+                  </a>
+                  <a
+                    href="/edit-seleksi-pelamar/[id]"
+                    class="btn btn-xs bg-blue-500 border-none hover:bg-blue-700"
+                  >
+                    <img width={17} height={16} src="/fimgs/ic-edit.x1.svg" />{" "}
+                    Edit
+                  </a>
+                </td>
+              </tr>
+
+              <tr>
+                <th>3</th>
+                <td>Analyst</td>
+                <td>2 Pelamar</td>
+                <td>
+                  <div class="badge badge-accent">Proses Seleksi</div>
+                </td>
+                <td>
+                  <a
+                    href="/seleksi-berkas/"
+                    type="button"
+                    class="btn btn-xs bg-green-500 border-none hover:bg-green-700 mr-4"
+                  >
+                    <img width={17} height={16} src="/fimgs/ic-view.x1.svg" />{" "}
+                    Detail
+                  </a>
+                  <a
+                    href="/edit-seleksi-pelamar/[id]"
+                    class="btn btn-xs bg-blue-500 border-none hover:bg-blue-700"
+                  >
+                    <img width={17} height={16} src="/fimgs/ic-edit.x1.svg" />{" "}
+                    Edit
+                  </a>
+                </td>
+              </tr>
+
+              <tr>
+                <th>4</th>
+                <td>Designer</td>
+                <td>3 Pelamar</td>
+                <td>
+                  <div class="badge badge-accent">Proses Seleksi</div>
+                </td>
+                <td>
+                  <a
+                    href="/seleksi-berkas/"
+                    type="button"
+                    class="btn btn-xs bg-green-500 border-none hover:bg-green-700 mr-4"
+                  >
+                    <img width={17} height={16} src="/fimgs/ic-view.x1.svg" />{" "}
+                    Detail
+                  </a>
+                  <a
+                    href="/edit-seleksi-pelamar/[id]"
                     class="btn btn-xs bg-blue-500 border-none hover:bg-blue-700"
                   >
                     <img width={17} height={16} src="/fimgs/ic-edit.x1.svg" />{" "}
@@ -68,7 +146,7 @@
           </table>
         </div>
         <div class="flex justify-start-end items-center">
-          <div class="flex-1">Showing 1 to 1 of entries</div>
+          <div class="flex-1">Showing 1 to 4 of 4 entries</div>
           <div class="btn-group">
             <button
               disabled
@@ -130,23 +208,98 @@
                 <th width="50">NO</th>
                 <th>POSISI</th>
                 <th>JUMLAH PELAMAR</th>
-                <th>STATUS</th>
+                <th width="161">STATUS</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <th>1</th>
-                <td>Production Leader</td>
-                <td>10 Pelamar</td>
+                <td>Developer</td>
+                <td>3 Pelamar</td>
                 <td>
-                  <div class="badge badge-accent">Selesai</div>
+                  <a
+                    // href="/seleksi-berkas/"
+                    type="button"
+                    class="btn btn-xs bg-green-500 border-none hover:bg-green-700 mr-4"
+                  >
+                    Selesai
+                  </a>
+                  <a
+                    href="/edit-seleksi-pelamar/[id]"
+                    class="btn btn-xs bg-blue-500 border-none hover:bg-blue-700"
+                  >
+                    Edit
+                  </a>
+                </td>
+              </tr>
+
+              <tr>
+                <th>2</th>
+                <td>Engineer</td>
+                <td>2 Pelamar</td>
+                <td>
+                  <a
+                    // href="/seleksi-berkas/"
+                    type="button"
+                    class="btn btn-xs bg-green-500 border-none hover:bg-green-700 mr-4"
+                  >
+                    Selesai
+                  </a>
+                  <a
+                    href="/edit-seleksi-pelamar/[id]"
+                    class="btn btn-xs bg-blue-500 border-none hover:bg-blue-700"
+                  >
+                    Edit
+                  </a>
+                </td>
+              </tr>
+
+              <tr>
+                <th>3</th>
+                <td>Analyst</td>
+                <td>2 Pelamar</td>
+                <td>
+                  <a
+                    // href="/seleksi-berkas/"
+                    type="button"
+                    class="btn btn-xs bg-green-500 border-none hover:bg-green-700 mr-4"
+                  >
+                    Selesai
+                  </a>
+                  <a
+                    href="/edit-seleksi-pelamar/[id]"
+                    class="btn btn-xs bg-blue-500 border-none hover:bg-blue-700"
+                  >
+                    Edit
+                  </a>
+                </td>
+              </tr>
+
+              <tr>
+                <th>4</th>
+                <td>Designer</td>
+                <td>3 Pelamar</td>
+                <td>
+                  <a
+                    // href="/seleksi-berkas/"
+                    type="button"
+                    class="btn btn-xs bg-green-500 border-none hover:bg-green-700 mr-4"
+                  >
+                    Selesai
+                  </a>
+                  <a
+                    href="/edit-seleksi-pelamar/[id]"
+                    class="btn btn-xs bg-blue-500 border-none hover:bg-blue-700"
+                  >
+                    Edit
+                  </a>
                 </td>
               </tr>
             </tbody>
           </table>
         </div>
         <div class="flex justify-start-end items-center">
-          <div class="flex-1">Showing 1 to 1 of entries</div>
+          <div class="flex-1">Showing 1 to 4 of 4 entries</div>
           <div class="btn-group">
             <button
               disabled
