@@ -7,6 +7,7 @@
       meta.value = await api("/api/lowongankerja");
     }}
   />
+  <script src="script.js"></script>
   <div class="card bg-white shadow">
     <div class="card-body">
       {/*<h2 class="card-title">Data Departemen</h2>*/}
@@ -76,8 +77,10 @@
                 <th>{idx + 1}</th>
                 <td>{lowonganKerja.Kebutuhan_loker.posisi}</td>
                 <td>{lowonganKerja.Status_Pekerja.status_pekerja}</td>
-                <td>{lowonganKerja.start_open}</td>
-                <td>{lowonganKerja.end_open}</td>
+                {/*<td>{lowonganKerja.start_open}</td>*/}
+                {/*<td>{lowonganKerja.end_open}</td>*/}
+                <td>14 Desember 2021</td>
+                <td>13 Januari 2022</td>
                 <td>{lowonganKerja.jumlah_diterima}</td>
                 <td>
                   <div class="badge badge-accent">
@@ -119,7 +122,10 @@
       <div class="flex justify-start-end items-center">
         <div class="flex-1">Showing 1 to 7 of 7 entries</div>
         <div class="btn-group">
-          <button class="btn btn-sm bg-white text-black hover:text-white">
+          <button
+            disabled
+            class="btn btn-sm bg-white text-black hover:text-white"
+          >
             Previous
           </button>
           <button class="btn btn-sm btn-active">1</button>
@@ -129,9 +135,7 @@
           <button class="btn btn-sm bg-white text-black hover:text-white">
             3
           </button>
-          <button class="btn btn-sm bg-white text-black hover:text-white">
-            4
-          </button>
+
           <button class="btn btn-sm bg-white text-black hover:text-white">
             Next
           </button>
