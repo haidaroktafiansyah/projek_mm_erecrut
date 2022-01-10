@@ -48,7 +48,7 @@
   {/*/>*/}
   <div class="card bg-white shadow">
     <div class="card-body">
-      <h2 class="card-title">Edit Seleksi Berkas</h2>
+      <h2 class="card-title">Edit Seleksi Pelamar</h2>
       <form
         onSubmit={(e) => {
           e.preventDefault();
@@ -72,18 +72,18 @@
         </div>
 
         <div class="grid grid-cols-4 gap-2 mb-4">
-        <label class="label">
-          <span class="label-text">Tanggal Melamar</span>
-        </label>
-        <div class="form-control col-span-3">
-          <input
-            type="date"
-            class="input input-bordered"
-            value={meta.tglMulai}
-            onChange={(e) => meta.action.tglMulaiChange(e)}
-          />
+          <label class="label">
+            <span class="label-text">Tanggal Melamar</span>
+          </label>
+          <div class="form-control col-span-3">
+            <input
+              type="date"
+              class="input input-bordered"
+              value={meta.tglMulai}
+              onChange={(e) => meta.action.tglMulaiChange(e)}
+            />
+          </div>
         </div>
-      </div>
 
         <div class="grid grid-cols-4 gap-2 mb-4">
           <label class="label">
@@ -103,20 +103,6 @@
             ))}
           </select>
         </div>
-
-        <div class="grid grid-cols-4 gap-2 mb-4">
-        <label class="label">
-          <span class="label-text">Tanggal Interview</span>
-        </label>
-        <div class="form-control col-span-3">
-          <input
-            type="date"
-            class="input input-bordered"
-            value={meta.tglMulai}
-            onChange={(e) => meta.action.tglMulaiChange(e)}
-          />
-        </div>
-      </div>
 
         <div class="grid grid-cols-4 gap-2 mb-4">
           <label class="label">
@@ -143,4 +129,4 @@
       </form>
     </div>
   </div>
-</>s
+</>
