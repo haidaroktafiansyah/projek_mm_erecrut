@@ -36,11 +36,11 @@
       <div class="flex justify-between items-center mb-4">
         <div class="flex-2 mr-1">Show</div>
         <select class="select select-bordered max-w-xs">
-          <option selected="selected">10</option>
+          <option selected="selected">5</option>
+          <option>10</option>
           <option>25</option>
           <option>50</option>
           <option>100</option>
-          <option>All</option>
         </select>
         <div class="flex-1 ml-1">entries</div>
 
@@ -77,10 +77,8 @@
                 <th>{idx + 1}</th>
                 <td>{lowonganKerja.Kebutuhan_loker.posisi}</td>
                 <td>{lowonganKerja.Status_Pekerja.status_pekerja}</td>
-                {/*<td>{lowonganKerja.start_open}</td>*/}
-                {/*<td>{lowonganKerja.end_open}</td>*/}
-                <td>14 Desember 2021</td>
-                <td>13 Januari 2022</td>
+                <td>{lowonganKerja.start_open}</td>
+                <td>{lowonganKerja.end_open}</td>
                 <td>{lowonganKerja.jumlah_diterima}</td>
                 <td>
                   <div class="badge badge-accent">
@@ -120,7 +118,7 @@
         </table>
       </div>
       <div class="flex justify-start-end items-center">
-        <div class="flex-1">Showing 1 to 7 of 7 entries</div>
+        <div class="flex-1">Showing 1 to _ of _ entries</div>
         <div class="btn-group">
           <button
             disabled
