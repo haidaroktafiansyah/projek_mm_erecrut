@@ -1,10 +1,128 @@
 <>
   <effect
     meta={{
-      value: {},
+      departemen: [],
+      searching: "",
+      entries: 5,
+      last_entries: 5,
+      first_entries: 0,
+      page: 1,
+      sum_page: 0,
+      page_array: [],
+
+      async onChange(key, e) {
+        let value = e.target.value;
+
+        if (key === "entries") {
+          runInAction(() => {
+            this[key] = value;
+            this.first_entries = 0;
+            this.page = 1;
+            this.last_entries = parseInt(value);
+            this.sum_page = Math.ceil(this.departemen.length / this.entries);
+            this.page_array = Array.apply(null, {
+              length: this.sum_page,
+            }).map(Number.call, Number);
+          });
+        } else if (key === "searching") {
+          runInAction(() => {
+            this[key] = value;
+            api("/api/departemen-test", {
+              departemen: {
+                departemen: value,
+              },
+              e: "Searching",
+            }).then((res) => {
+              runInAction(() => {
+                this.departemen = res.departemen;
+                this.first_entries = 0;
+                this.page = 1;
+                this.last_entries = parseInt(this.entries);
+                this.sum_page = Math.ceil(
+                  this.departemen.length / this.entries
+                ); // meta.page_array = new Array(meta.sum_page);
+
+                this.page_array = Array.apply(null, {
+                  length: this.sum_page,
+                }).map(Number.call, Number);
+              });
+            });
+          });
+        }
+
+        console.log(key + " : " + this[key]); // console.log("page : " + this.page);
+        // console.log("last_entries : " + this.last_entries);
+      },
+
+      async editDepartemen(id) {
+        navigate("/edit-departemen/" + id);
+      },
+
+      async deleteDepartemen(id) {
+        console.log(id);
+        const confirmDel = confirm("Confirm delete?");
+
+        if (confirmDel) {
+          await api("/api/departemen-test", {
+            departemen: {
+              id: id,
+            },
+            e: "Delete",
+          }).then((res) => {
+            if (res.res === "Failure") {
+              alert(
+                "Can't delete Departemen, because related with another data"
+              );
+            } else {
+              navigate("/departemen");
+            }
+          });
+        }
+      },
+
+      async onClickPage(key, value) {
+        if (value !== this.page && value !== 0 && value <= this.sum_page) {
+          const last_page = this.page;
+          const gap = value - last_page;
+          const res = gap > 0;
+          console.log("gap", gap);
+          runInAction(() => {
+            this.page = value;
+            if (res) {
+              this.first_entries += parseInt(this.entries) * Math.abs(gap);
+              this.last_entries += parseInt(this.entries) * Math.abs(gap);
+            } else {
+              this.first_entries -= parseInt(this.entries) * Math.abs(gap);
+              this.last_entries -= parseInt(this.entries) * Math.abs(gap);
+            }
+          });
+          console.log(key + " : " + value); // console.log("first_entries : " + this.first_entries);
+          // console.log("last_entries : " + this.last_entries);
+          // console.log("gap : " + res);
+        }
+      },
     }}
     run={async () => {
-      meta.value = await api("/api/departemen");
+      var departemen = null as any;
+
+      await api("/api/departemen-test", {
+        departemen: " ",
+        e: "ReadAllData",
+      }).then((res) => {
+        console.log(res);
+        departemen = res.departemen;
+      });
+
+      runInAction(() => {
+        console.log("berubah");
+        meta.departemen = departemen;
+        // meta.nama_kategori = barang.kategori.nama;
+        meta.sum_page = Math.ceil(meta.departemen.length / meta.entries); // meta.page_array = new Array(meta.sum_page);
+
+        meta.page_array = Array.apply(null, {
+          length: meta.sum_page,
+        }).map(Number.call, Number);
+      }); // console.log(meta.page_array);
     }}
   />
   <div class="card bg-white shadow">
@@ -33,27 +151,35 @@
         </a>
       </div>
 
+      {/*Show Data By limit per Page*/}
       <div class="flex justify-between items-center mb-4">
         <div class="flex-2 mr-1">Show</div>
-        <select class="select select-bordered max-w-xs">
-          <option selected="selected">10</option>
-          <option>25</option>
-          <option>50</option>
-          <option>100</option>
-          <option>All</option>
+        <select
+          class="select select-bordered max-w-xs mr-1"
+          value={meta.entries}
+          onChange={(e) => {
+            meta.onChange("entries", e);
+          }}
+        >
+          <option value="5">5</option>
+          <option value="10">10</option>
+          <option value="25">25</option>
+          <option value="50">50</option>
+          <option value="100">100</option>
         </select>
         <div class="flex-1 ml-1">entries</div>
-
+        {/*Filter Cari*/}
         <div class="form-control">
           <div class="relative">
             <input
               type="text"
               placeholder="Cari"
               class="w-full pr-16 input input-primary input-bordered"
+              onChange={(e) => {
+                meta.onChange("searching", e);
+              }}
+              value={meta.searching}
             />
-            <button class="absolute top-0 right-0 rounded-l-none btn btn-primary">
-              Cari
-            </button>
           </div>
         </div>
       </div>
@@ -69,51 +195,121 @@
             </tr>
           </thead>
           <tbody>
-            {meta.value?.data?.map((departemenData, idx) => (
-              <tr>
-                <th>{idx + 1}</th>
-                <td>{departemenData.nama_departemen}</td>
-                <td>
-                  {departemenData.Alamat ? departemenData.Alamat.alamat : ""}
-                </td>
-                <td>
-                  <a
-                    href={`/edit-departemen/` + departemenData.id}
-                    class="btn btn-xs bg-blue-500 border-none hover:bg-blue-700 mr-4"
-                  >
-                    <img width={17} height={16} src="/fimgs/ic-edit.x1.svg" />
-                    Edit
-                  </a>
-                  <a class="btn btn-xs bg-red-500 border-none hover:bg-red-700">
-                    <img width={17} height={16} src="/fimgs/ic-hapus.x1.svg" />
-                    Hapus
-                  </a>
-                </td>
+            {meta.departemen
+              .slice(meta.first_entries, meta.last_entries)
+              .map((numList, i) => {
+                var odd = (i + 1) % 2;
+                return (
+                  <tr>
+                    <th>{meta.first_entries + i + 1}</th>
+                    <td>{numList.nama_departemen}</td>
+                    <td>{numList.Alamat ? numList.Alamat.alamat : ""}</td>
+                    <td>
+                      <a
+                        class="btn btn-xs bg-blue-500 border-none hover:bg-blue-700 mr-4"
+                        onClick={() => {
+                          meta.editDepartemen(numList.id);
+                        }}
+                      >
+                        <img
+                          width={17}
+                          height={16}
+                          src="/fimgs/ic-edit.x1.svg"
+                        />{" "}
+                        Edit
+                      </a>
+                      <a
+                        class="btn btn-xs bg-red-500 border-none hover:bg-red-700"
+                        onClick={() => {
+                          meta.deleteDepartemen(numList.id);
+                        }}
+                      >
+                        <img
+                          width={17}
+                          height={16}
+                          src="/fimgs/ic-hapus.x1.svg"
+                        />{" "}
+                        Hapus
+                      </a>
+                    </td>
+                  </tr>
+                );
+              })}
+            {meta.departemen.length === 0 && (
+              <tr className="flex w-full justify-center p-3">
+                <td>No data found!</td>
               </tr>
-            ))}
+            )}
           </tbody>
         </table>
       </div>
-      <div class="flex justify-start-end items-center">
-        <div class="flex-1">Showing 1 to 6 of 6 entries</div>
-        <div class="btn-group">
-          <button
-            disabled
-            class="btn btn-sm bg-white text-black hover:text-white"
+      <div class="flex self-stretch space-x-2.5 items-center justify-start bg-coolGray-50">
+        <div class="flex flex-1 items-start justify-start">
+          <div
+            class={`text-base leading-normal text-black font-bold`}
+          >{`Showing ${meta.first_entries + 1} to ${
+            meta.last_entries <= meta.departemen.length
+              ? meta.last_entries
+              : meta.departemen.length
+          } of ${meta.departemen.length} entries`}</div>
+        </div>
+        <div class="flex space-x-2 items-start justify-start">
+          <div
+            class={`flex self-stretch flex-col items-center justify-center px-2 bg-coolGray-50 rounded cursor-pointer`}
+            style={`:hover {outline: 2px solid #ababab;`}
+            onClick={() => {
+              meta.onClickPage("page" + (meta.page - 1), meta.page - 1);
+            }}
           >
             Previous
-          </button>
-          <button class="btn btn-sm btn-active">1</button>
-          <button class="btn btn-sm bg-white text-black hover:text-white">
-            2
-          </button>
-          <button class="btn btn-sm bg-white text-black hover:text-white">
-            3
-          </button>
+          </div>
+          {meta.page_array.map((numList, i) => {
+            const upper =
+              meta.page + 2 < meta.page_array.length
+                ? meta.page + 2
+                : meta.page_array.length;
+            const under = meta.page - 2 > 0 ? meta.page - 2 : 1;
 
-          <button class="btn btn-sm bg-white text-black hover:text-white">
+            if (
+              (numList + 1 < upper && numList + 1 > under) ||
+              numList + 1 === 1 ||
+              numList + 1 === meta.page_array.length
+            ) {
+              return (
+                <div class={`flex items-start justify-start`}>
+                  {
+                    <div
+                      class={`flex flex-col items-start justify-start px-2.5 py-1 bg-blue-100 rounded text-white`}
+                      style={`${
+                        "page" + meta.page === "page" + (i + 1)
+                          ? `background: rgba(29, 78, 216, var(--tw-bg-opacity));`
+                          : `:hover {background-color: rgba(191, 219, 254, var(--tw-bg-opacity));}`
+                      }
+                                cursor:pointer;`}
+                      onClick={() => {
+                        meta.onClickPage("page" + (i + 1), i + 1);
+                      }}
+                    >
+                      <div class={`text-base leading-normal`}>
+                        {numList + 1}
+                      </div>
+                    </div>
+                  }
+                </div>
+              );
+            } else {
+              if (numList + 1 === upper || numList + 1 === under) return "...";
+            }
+          })}
+          <div
+            class={`flex self-stretch flex-col items-center justify-center px-2 bg-coolGray-50 rounded cursor-pointer`}
+            style={`:hover {outline: 2px solid #ababab;`}
+            onClick={() => {
+              meta.onClickPage("page" + (meta.page + 1), meta.page + 1);
+            }}
+          >
             Next
-          </button>
+          </div>
         </div>
       </div>
     </div>
