@@ -32,7 +32,9 @@
           <p class="mb-2 text-lg font-reguler text-blueGray-400">
             Lowongan Aktif
           </p>
-          <p class="text-4xl font-semibold text-gray-700">4</p>
+          <p class="text-4xl font-semibold text-gray-700">
+            {meta.value?.lowongan_kerja_count}
+          </p>
         </div>
       </div>
       {/*---------------Total Pelamar---------------*/}
@@ -52,7 +54,9 @@
         </div>
         <div>
           <p class="mb-2 text-lg font-reguler text-blueGray-400">Total Akun</p>
-          <p class="text-4xl font-semibold text-gray-700">10</p>
+          <p class="text-4xl font-semibold text-gray-700">
+            {meta.value?.user_count}
+          </p>
         </div>
       </div>
       {/*---------------Pelamar Aktif---------------*/}
@@ -74,7 +78,9 @@
           <p class="mb-2 text-lg font-reguler text-blueGray-400">
             Pelamar Aktif
           </p>
-          <p class="text-4xl font-semibold text-gray-700">10</p>
+          <p class="text-4xl font-semibold text-gray-700">
+            {meta.value?.pelamar_count}
+          </p>
         </div>
       </div>
       {/*---------------Departemen---------------*/}
@@ -100,13 +106,15 @@
           {/*{dashboardStatus.Departemen.departemen_count}*/}
           {/*</p>*/}
           {/*))}*/}
-          <p class="text-4xl font-semibold text-gray-700">6</p>
+          <p class="text-4xl font-semibold text-gray-700">
+            {meta.value?.departemen_count}
+          </p>
         </div>
       </div>
     </div>
     <div class="card bg-white shadow">
       <div class="card-body">
-        <h2 class="card-title">Daftar 10 Pelamar Terbaru</h2>
+        <h2 class="card-title">Daftar Pelamar Terkini</h2>
         <hr class="mb-4" />
         <div class="overflow-x-auto">
           <table class="table w-full">
@@ -120,76 +128,19 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th>1</th>
-                <td>Indri Suci Indartik</td>
-                <td>Developer</td>
-                <td>indrisuci@gmail.com</td>
-                <td>7 Januari 2022</td>
-              </tr>
-              <tr>
-                <th>2</th>
-                <td>Clara Usada</td>
-                <td>Designer</td>
-                <td>clara.usada@gmail.com</td>
-                <td>7 Januari 2022</td>
-              </tr>
-              <tr>
-                <th>3</th>
-                <td>Opan Rajata</td>
-                <td>Developer</td>
-                <td>opanrajata@gmail.com</td>
-                <td>7 Januari 2022</td>
-              </tr>
-              <tr>
-                <th>4</th>
-                <td>Gabriella Yolanda</td>
-                <td>Engineer</td>
-                <td>gabriella.yolanda@gmail.com</td>
-                <td>7 Januari 2022</td>
-              </tr>
-              <tr>
-                <th>5</th>
-                <td>Usman Gunarto</td>
-                <td>Analyst</td>
-                <td>usman.gunarto@gmail.com</td>
-                <td>7 Januari 2022</td>
-              </tr>
-              <tr>
-                <th>6</th>
-                <td>Salsabila Agustina</td>
-                <td>Designer</td>
-                <td>salsabilaagustina@gmail.com</td>
-                <td>6 Januari 2022</td>
-              </tr>
-              <tr>
-                <th>7</th>
-                <td>Indah Astuti</td>
-                <td>Developer</td>
-                <td>indahastuti@gmail.com</td>
-                <td>6 Januari 2022</td>
-              </tr>
-              <tr>
-                <th>8</th>
-                <td>Ajiono Pradana</td>
-                <td>Engineer</td>
-                <td>ajionopradana@gmail.com</td>
-                <td>6 Januari 2022</td>
-              </tr>
-              <tr>
-                <th>9</th>
-                <td>Iriana Maryati</td>
-                <td>Analyst</td>
-                <td>irianamaryati@gmail.com</td>
-                <td>5 Januari 2022</td>
-              </tr>
-              <tr>
-                <th>10</th>
-                <td>Uchita Nasyiah</td>
-                <td>Designer</td>
-                <td>uchitanasyiah@gmail.com</td>
-                <td>5 Januari 2022</td>
-              </tr>
+              {meta.value?.user?.map((recentUser, idx) => (
+                <tr>
+                  <th>{idx + 1}</th>
+                  <td>{recentUser.User ? recentUser.User.nama_lengkap : ""}</td>
+                  <td>
+                    {recentUser.Departemen
+                      ? recentUser.Departemen.nama_departemen
+                      : ""}
+                  </td>
+                  <td>{recentUser.User ? recentUser.User.email : ""}</td>
+                  <td>{recentUser.createdAt ? recentUser.createdAt : ""}</td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>
