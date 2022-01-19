@@ -1,188 +1,191 @@
-<div>
-  <div class="card bg-white shadow">
-    <div class="card-body">
-      {<h2 class="card-title">Data Pelamar / Detail Pelamar</h2>}
-    </div>
-    <div class="tabs tabs-boxed">
-      <a href="/data-pelamar/detail/identitas" class="tab">
-        IDENTITAS PRIBADI
-      </a>
-      <a href="/data-pelamar/detail/pendidikan" class="tab tab-active">
-        PENDIDIKAN FORMAL & ORGANISASI
-      </a>
-      <a href="/data-pelamar/detail/keahlian" class="tab">
-        SKILL/KEAHLIAN
-      </a>
-    </div>
-    <br></br>
-    <h3 class="card-title">Riwayat Pendidikan Formal</h3>
-    <div class="overflow-x-auto">
-      <table class="table w-full">
-        <tbody>
-          <tr class="hover">
-            <td>Jenjang</td>
-            <td>
-              <div class="form-control col-span-3">
-                <input
-                  disabled
-                  value="S1"
-                  type="text"
-                  // placeholder="S1"
-                  class="input input-bordered"
-                />
-              </div>
-            </td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr class="hover">
-            <td>Periode</td>
-            <td>
-              <div class="form-control col-span-3">
-                <input
-                  disabled
-                  value="2017"
-                  type="text"
-                  // placeholder="2017"
-                  class="input input-bordered"
-                />
-              </div>
-            </td>
-            <td>Sampai</td>
-            <td>
-              <div class="form-control col-span-3">
-                <input
-                  disabled
-                  value="2021"
-                  type="text"
-                  // placeholder="2021"
-                  class="input input-bordered"
-                />
-              </div>
-            </td>
-          </tr>
-          <tr class="hover">
-            <td>Universitas</td>
-            <td>
-              <div class="form-control col-span-3">
-                <input
-                  disabled
-                  value="Universitas Indonesia"
-                  type="text"
-                  // placeholder="Universitas Indonesia"
-                  class="input input-bordered"
-                />
-              </div>
-            </td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr class="hover">
-            <td>Kota</td>
-            <td>
-              <div class="form-control col-span-3">
-                <input
-                  disabled
-                  value="Jakarta"
-                  type="text"
-                  // placeholder="Jakarta"
-                  class="input input-bordered"
-                />
-              </div>
-            </td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr class="hover">
-            <td>Jurusan</td>
-            <td>
-              <div class="form-control col-span-3">
-                <input
-                  disabled
-                  value="Teknik Informatika"
-                  type="text"
-                  // placeholder="Teknik Informatika"
-                  class="input input-bordered"
-                />
-              </div>
-            </td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr class="hover">
-            <td>GPA/Grade</td>
-            <td>
-              <div class="form-control col-span-3">
-                <input
-                  disabled
-                  value="3,96"
-                  type="text"
-                  // placeholder="3,96"
-                  class="input input-bordered"
-                />
-              </div>
-            </td>
-            <td></td>
-            <td></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <br></br>
-    <h3 class="card-title">Dokumen</h3>
-    <div class="overflow-x-auto">
-      <table class="table w-full">
-        <tbody>
-          <tr class="hover">
-            <td>Ijazah</td>
-            <td>
-              <a href="">ijazah_indri.pdf</a>
-            </td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr class="hover">
-            <td>CV</td>
-            <td>
-              <a href="">cv_indri.pdf</a>
-            </td>
-            <td></td>
-            <td></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <br></br>
-    <h3 class="card-title">Sertifikat Organisasi</h3>
-    <div class="overflow-x-auto">
-      <table class="table w-full">
-        <tbody>
-          <tr class="hover">
-            <td>Sertifikat 1</td>
-            <td>
-              <a href="">sertifikat1_indri.pdf</a>
-            </td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr class="hover">
-            <td>Sertifikat 2</td>
-            <td>
-              <a href="">sertifikat2_indri.pdf</a>
-            </td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr class="hover">
-            <td>Sertifikat 3</td>
-            <td>
-              <a href="">sertifikat3_indri.pdf</a>
-            </td>
-            <td></td>
-            <td></td>
-          </tr>
-        </tbody>
-      </table>
+<>
+  {/*w-data-pelamar-detail-pendidikan*/}
+  <div>
+    <div class="card bg-white shadow">
+      <div class="card-body">
+        {<h2 class="card-title">Data Pelamar / Detail Pelamar</h2>}
+      </div>
+      <div class="tabs tabs-boxed">
+        <a href="/data-pelamar/detail/identitas" class="tab">
+          IDENTITAS PRIBADI
+        </a>
+        <a href="/data-pelamar/detail/pendidikan" class="tab tab-active">
+          PENDIDIKAN FORMAL & ORGANISASI
+        </a>
+        <a href="/data-pelamar/detail/keahlian" class="tab">
+          SKILL/KEAHLIAN
+        </a>
+      </div>
+      <br></br>
+      <h3 class="card-title">Riwayat Pendidikan Formal</h3>
+      <div class="overflow-x-auto">
+        <table class="table w-full">
+          <tbody>
+            <tr class="hover">
+              <td>Jenjang</td>
+              <td>
+                <div class="form-control col-span-3">
+                  <input
+                    disabled
+                    value="S1"
+                    type="text"
+                    // placeholder="S1"
+                    class="input input-bordered"
+                  />
+                </div>
+              </td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr class="hover">
+              <td>Periode</td>
+              <td>
+                <div class="form-control col-span-3">
+                  <input
+                    disabled
+                    value="2017"
+                    type="text"
+                    // placeholder="2017"
+                    class="input input-bordered"
+                  />
+                </div>
+              </td>
+              <td>Sampai</td>
+              <td>
+                <div class="form-control col-span-3">
+                  <input
+                    disabled
+                    value="2021"
+                    type="text"
+                    // placeholder="2021"
+                    class="input input-bordered"
+                  />
+                </div>
+              </td>
+            </tr>
+            <tr class="hover">
+              <td>Universitas</td>
+              <td>
+                <div class="form-control col-span-3">
+                  <input
+                    disabled
+                    value="Universitas Indonesia"
+                    type="text"
+                    // placeholder="Universitas Indonesia"
+                    class="input input-bordered"
+                  />
+                </div>
+              </td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr class="hover">
+              <td>Kota</td>
+              <td>
+                <div class="form-control col-span-3">
+                  <input
+                    disabled
+                    value="Jakarta"
+                    type="text"
+                    // placeholder="Jakarta"
+                    class="input input-bordered"
+                  />
+                </div>
+              </td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr class="hover">
+              <td>Jurusan</td>
+              <td>
+                <div class="form-control col-span-3">
+                  <input
+                    disabled
+                    value="Teknik Informatika"
+                    type="text"
+                    // placeholder="Teknik Informatika"
+                    class="input input-bordered"
+                  />
+                </div>
+              </td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr class="hover">
+              <td>GPA/Grade</td>
+              <td>
+                <div class="form-control col-span-3">
+                  <input
+                    disabled
+                    value="3,96"
+                    type="text"
+                    // placeholder="3,96"
+                    class="input input-bordered"
+                  />
+                </div>
+              </td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <br></br>
+      <h3 class="card-title">Dokumen</h3>
+      <div class="overflow-x-auto">
+        <table class="table w-full">
+          <tbody>
+            <tr class="hover">
+              <td>Ijazah</td>
+              <td>
+                <a href="">ijazah_indri.pdf</a>
+              </td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr class="hover">
+              <td>CV</td>
+              <td>
+                <a href="">cv_indri.pdf</a>
+              </td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <br></br>
+      <h3 class="card-title">Sertifikat Organisasi</h3>
+      <div class="overflow-x-auto">
+        <table class="table w-full">
+          <tbody>
+            <tr class="hover">
+              <td>Sertifikat 1</td>
+              <td>
+                <a href="">sertifikat1_indri.pdf</a>
+              </td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr class="hover">
+              <td>Sertifikat 2</td>
+              <td>
+                <a href="">sertifikat2_indri.pdf</a>
+              </td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr class="hover">
+              <td>Sertifikat 3</td>
+              <td>
+                <a href="">sertifikat3_indri.pdf</a>
+              </td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
-</div>
+</>
