@@ -50,10 +50,11 @@
               type="text"
               placeholder="Cari"
               class="w-full pr-16 input input-primary input-bordered"
+              onChange={(e) => {
+                meta.onChange("searching", e);
+              }}
+              value={meta.searching}
             />
-            <button class="absolute top-0 right-0 rounded-l-none btn btn-primary">
-              Cari
-            </button>
           </div>
         </div>
       </div>
@@ -108,7 +109,7 @@
       </div>
 
       <div class="flex justify-start-end items-center">
-        <div class="flex-1">Showing 1 to _ of _ entries</div>
+        <div class="flex-1">Showing 1 to 4 of 4 entries</div>
         <div class="btn-group">
           <button
             disabled

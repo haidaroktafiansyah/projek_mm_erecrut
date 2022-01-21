@@ -7,8 +7,8 @@
         <div class="flex justify-between items-center mb-4">
           <div class="flex-2 mr-1">Show</div>
           <select class="select select-bordered max-w-xs">
-            <option selected="selected">5</option>
-            <option>10</option>
+            <option>5</option>
+            <option selected="selected">10</option>
             <option>25</option>
             <option>50</option>
             <option>100</option>
@@ -21,10 +21,11 @@
                 type="text"
                 placeholder="Cari"
                 class="w-full pr-16 input input-primary input-bordered"
+                onChange={(e) => {
+                  meta.onChange("searching", e);
+                }}
+                value={meta.searching}
               />
-              <button class="absolute top-0 right-0 rounded-l-none btn btn-primary">
-                Cari
-              </button>
             </div>
           </div>
         </div>
@@ -43,7 +44,241 @@
               <tr>
                 <th>1</th>
                 <td>Indri Suci Indartik</td>
-                <td>7 Januari 2022</td>
+                <td>Rabu, 26 Januari 2022</td>
+                <td>
+                  <div class="badge badge-accent">Diterima</div>
+                </td>
+                <td>
+                  <a
+                    href="/data-pelamar/detail/identitas/[id]"
+                    type="button"
+                    class="btn btn-xs bg-green-500 border-none hover:bg-green-700 mr-4"
+                  >
+                    <img width={17} height={16} src="/fimgs/ic-view.x1.svg" />{" "}
+                    Detail
+                  </a>
+                  <a
+                    href="/edit-seleksi-berkas/[id]"
+                    class="btn btn-xs bg-blue-500 border-none hover:bg-blue-700"
+                  >
+                    <img width={17} height={16} src="/fimgs/ic-edit.x1.svg" />{" "}
+                    Edit
+                  </a>
+                </td>
+              </tr>
+
+              <tr>
+                <th>2</th>
+                <td>Clara Usada</td>
+                <td>Rabu, 26 Januari 2022</td>
+                <td>
+                  <div class="badge badge-accent">Diterima</div>
+                </td>
+                <td>
+                  <a
+                    href="/data-pelamar/detail/identitas/[id]"
+                    type="button"
+                    class="btn btn-xs bg-green-500 border-none hover:bg-green-700 mr-4"
+                  >
+                    <img width={17} height={16} src="/fimgs/ic-view.x1.svg" />{" "}
+                    Detail
+                  </a>
+                  <a
+                    href="/edit-seleksi-berkas/[id]"
+                    class="btn btn-xs bg-blue-500 border-none hover:bg-blue-700"
+                  >
+                    <img width={17} height={16} src="/fimgs/ic-edit.x1.svg" />{" "}
+                    Edit
+                  </a>
+                </td>
+              </tr>
+
+              <tr>
+                <th>3</th>
+                <td>Opan Rajata</td>
+                <td>Rabu, 26 Januari 2022</td>
+                <td>
+                  <div class="badge badge-accent">Diterima</div>
+                </td>
+                <td>
+                  <a
+                    href="/data-pelamar/detail/identitas/[id]"
+                    type="button"
+                    class="btn btn-xs bg-green-500 border-none hover:bg-green-700 mr-4"
+                  >
+                    <img width={17} height={16} src="/fimgs/ic-view.x1.svg" />{" "}
+                    Detail
+                  </a>
+                  <a
+                    href="/edit-seleksi-berkas/[id]"
+                    class="btn btn-xs bg-blue-500 border-none hover:bg-blue-700"
+                  >
+                    <img width={17} height={16} src="/fimgs/ic-edit.x1.svg" />{" "}
+                    Edit
+                  </a>
+                </td>
+              </tr>
+
+              <tr>
+                <th>4</th>
+                <td>Gabriella Yolanda</td>
+                <td>Rabu, 26 Januari 2022</td>
+                <td>
+                  <div class="badge badge-accent">Diterima</div>
+                </td>
+                <td>
+                  <a
+                    href="/data-pelamar/detail/identitas/[id]"
+                    type="button"
+                    class="btn btn-xs bg-green-500 border-none hover:bg-green-700 mr-4"
+                  >
+                    <img width={17} height={16} src="/fimgs/ic-view.x1.svg" />{" "}
+                    Detail
+                  </a>
+                  <a
+                    href="/edit-seleksi-berkas/[id]"
+                    class="btn btn-xs bg-blue-500 border-none hover:bg-blue-700"
+                  >
+                    <img width={17} height={16} src="/fimgs/ic-edit.x1.svg" />{" "}
+                    Edit
+                  </a>
+                </td>
+              </tr>
+
+              <tr>
+                <th>5</th>
+                <td>Usman Gunarto</td>
+                <td>Rabu, 26 Januari 2022</td>
+                <td>
+                  <div class="badge badge-accent">Diterima</div>
+                </td>
+                <td>
+                  <a
+                    href="/data-pelamar/detail/identitas/[id]"
+                    type="button"
+                    class="btn btn-xs bg-green-500 border-none hover:bg-green-700 mr-4"
+                  >
+                    <img width={17} height={16} src="/fimgs/ic-view.x1.svg" />{" "}
+                    Detail
+                  </a>
+                  <a
+                    href="/edit-seleksi-berkas/[id]"
+                    class="btn btn-xs bg-blue-500 border-none hover:bg-blue-700"
+                  >
+                    <img width={17} height={16} src="/fimgs/ic-edit.x1.svg" />{" "}
+                    Edit
+                  </a>
+                </td>
+              </tr>
+
+              <tr>
+                <th>6</th>
+                <td>Salsabila Agustina</td>
+                <td>Selasa, 25 Januari 2022</td>
+                <td>
+                  <div class="badge badge-accent">Diterima</div>
+                </td>
+                <td>
+                  <a
+                    href="/data-pelamar/detail/identitas/[id]"
+                    type="button"
+                    class="btn btn-xs bg-green-500 border-none hover:bg-green-700 mr-4"
+                  >
+                    <img width={17} height={16} src="/fimgs/ic-view.x1.svg" />{" "}
+                    Detail
+                  </a>
+                  <a
+                    href="/edit-seleksi-berkas/[id]"
+                    class="btn btn-xs bg-blue-500 border-none hover:bg-blue-700"
+                  >
+                    <img width={17} height={16} src="/fimgs/ic-edit.x1.svg" />{" "}
+                    Edit
+                  </a>
+                </td>
+              </tr>
+
+              <tr>
+                <th>7</th>
+                <td>Indah Astuti</td>
+                <td>Selasa, 25 Januari 2022</td>
+                <td>
+                  <div class="badge badge-accent">Diterima</div>
+                </td>
+                <td>
+                  <a
+                    href="/data-pelamar/detail/identitas/[id]"
+                    type="button"
+                    class="btn btn-xs bg-green-500 border-none hover:bg-green-700 mr-4"
+                  >
+                    <img width={17} height={16} src="/fimgs/ic-view.x1.svg" />{" "}
+                    Detail
+                  </a>
+                  <a
+                    href="/edit-seleksi-berkas/[id]"
+                    class="btn btn-xs bg-blue-500 border-none hover:bg-blue-700"
+                  >
+                    <img width={17} height={16} src="/fimgs/ic-edit.x1.svg" />{" "}
+                    Edit
+                  </a>
+                </td>
+              </tr>
+
+              <tr>
+                <th>8</th>
+                <td>Ajiono Pradana</td>
+                <td>Selasa, 25 Januari 2022</td>
+                <td>
+                  <div class="badge badge-accent">Diterima</div>
+                </td>
+                <td>
+                  <a
+                    href="/data-pelamar/detail/identitas/[id]"
+                    type="button"
+                    class="btn btn-xs bg-green-500 border-none hover:bg-green-700 mr-4"
+                  >
+                    <img width={17} height={16} src="/fimgs/ic-view.x1.svg" />{" "}
+                    Detail
+                  </a>
+                  <a
+                    href="/edit-seleksi-berkas/[id]"
+                    class="btn btn-xs bg-blue-500 border-none hover:bg-blue-700"
+                  >
+                    <img width={17} height={16} src="/fimgs/ic-edit.x1.svg" />{" "}
+                    Edit
+                  </a>
+                </td>
+              </tr>
+
+              <tr>
+                <th>9</th>
+                <td>Iriana Maryati</td>
+                <td>Senin, 24 Januari 2022</td>
+                <td>
+                  <div class="badge badge-accent">Diterima</div>
+                </td>
+                <td>
+                  <a
+                    href="/data-pelamar/detail/identitas/[id]"
+                    type="button"
+                    class="btn btn-xs bg-green-500 border-none hover:bg-green-700 mr-4"
+                  >
+                    <img width={17} height={16} src="/fimgs/ic-view.x1.svg" />{" "}
+                    Detail
+                  </a>
+                  <a
+                    href="/edit-seleksi-berkas/[id]"
+                    class="btn btn-xs bg-blue-500 border-none hover:bg-blue-700"
+                  >
+                    <img width={17} height={16} src="/fimgs/ic-edit.x1.svg" />{" "}
+                    Edit
+                  </a>
+                </td>
+              </tr>
+
+              <tr>
+                <th>10</th>
+                <td>Uchita Nasyiah</td>
+                <td>Senin, 24 Januari 2022</td>
                 <td>
                   <div class="badge badge-accent">Diterima</div>
                 </td>
@@ -69,7 +304,7 @@
           </table>
         </div>
         <div class="flex justify-start-end items-center">
-          <div class="flex-1">Showing 1 to _ of _ entries</div>
+          <div class="flex-1">Showing 1 to 10 of 10 entries</div>
           <div class="btn-group">
             <button
               disabled
