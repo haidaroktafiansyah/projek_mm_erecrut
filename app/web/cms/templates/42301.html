@@ -1,0 +1,47 @@
+<body style="background-color:#2563EB">
+  <>
+    {/*m-register-success*/}
+    <effect run={() => {}} />
+    <div className="flex h-screen overflow-hidden">
+      <div className="w-screen h-screen flex justify-center items-center">
+        <div className="p-10 flex justify-center items-center flex-col">
+          <img
+            className="mb-5"
+            src="/fimgs/img-landingpage2.x1.svg"
+            alt="BPS NJ"
+            width="450"
+            height="1"
+          />
+          <br></br>
+          <p className="mb-2 font-bold text-3xl text-white text-center">
+            Daftar Sekarang, Besok Kerja
+          </p>
+          <br></br>
+          <p className="mb-2 font-bold text-3x1 text-white text-center">
+            Hanya dengan mendaftar di AndroRec kamu dapat memilih pekerjaan yang
+            kamu minati sesuai dengan kemampuan bahkan waktu luang kamu.
+          </p>
+          <br></br>
+
+          <button
+            className="bg-blue-500 hover:bg-blue-900 text-white font-bold p-3 rounded w-130"
+            onClick={() => {
+              window.location.replace("/m/register");
+            }}
+          >
+            <span>Daftar Sekarang</span>
+          </button>
+          <br></br>
+          <button
+            className="bg-blue-500 hover:bg-blue-900 text-white font-bold p-3 rounded w-130"
+            onClick={() => {
+              window.location.replace("/m/dashboard");
+            }}
+          >
+            <span>Telusuri Pekerjaan</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </>
+</body>
