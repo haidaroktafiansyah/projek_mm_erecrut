@@ -244,9 +244,9 @@
       {/*Pagination*/}
       <div class="flex self-stretch space-x-2.5 items-center justify-start bg-coolGray-50">
         <div class="flex flex-1 items-start justify-start">
-          <div
-            class={`text-base leading-normal text-black font-bold`}
-          >{`Showing ${meta.first_entries + 1} to ${
+          <div class={`text-base leading-normal text-black`}>{`Showing ${
+            meta.first_entries + 1
+          } to ${
             meta.last_entries <= meta.statuspekerja.length
               ? meta.last_entries
               : meta.statuspekerja.length
